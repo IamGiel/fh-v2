@@ -10,33 +10,6 @@
     </div>
 </div>
 
-{{!-- MULTER --}}
-<div class="container">
-    <h1>Profile Image</h1>
-    {{!--
-    <%= typeof msg != 'undefined' ? msg : '' %> --}}
-        <div class="entry">
-
-        </div>
-
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <div class="file-field input-field">
-                <div class="btn grey">
-                    <span>File</span>
-                    <input name="myImage" type="file">
-                </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                </div>
-            </div>
-            <button type="submit" class="btn">Use Photo</button>
-        </form>
-        <br>
-        <img src="{{file}}" class="responsive-img">
-</div>
-{{!-- MULTER --}}
-
-
 <div class="container" id="formContainer">
     {{!-- form action --}}
     <form action="/api/posts" method="POST" role="form">
@@ -118,7 +91,7 @@
                         <option value="5">Media</option>
                         <option value="6">Real Estate</option>
                         <option value="7">Education</option>
-                        <option value="8">Finance</option>
+                        <option value="8">Finances</option>
                         <option value="9">Technology</option>
                     </select>
                     </div>

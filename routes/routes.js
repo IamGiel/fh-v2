@@ -16,6 +16,16 @@ module.exports = function (app) {
         });
     });
 
+    // GET all types of workers on a MAP with markers
+    app.get("/workersListMap/:service", function (req, res) {
+        db.Worker.findAll({ where: { Service: req.params.service } })
+            .then(function (data) {
+                var hbsObject = { workers: data };
+                //console.log(hbsObject.workers[0].dataValues);
+                res.render("workersListMap", hbsObject)
+            });
+    });
+
     // GET route - homePage
     app.get("/homePage", function (req, res) {
         console.log("homePage is working");
