@@ -1,0 +1,131 @@
+
+body{
+    background-color: #f5f5f5;
+}
+
+
+/* Container holding the image and the text */
+/* form container */
+.container {
+    position: relative;
+    text-align: center;
+    color: gray;
+    width: 100%;
+}
+
+/* find help button on home page */
+#find-help {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    height: 250px;
+    width: 300px;
+    font-size: 50px;
+    text-align: center;
+}
+
+/* signup button on home page */
+#signup {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    height: 250px;
+    width: 300px;
+    font-size: 50px;
+    padding: 20px;
+
+}
+/* homepage image */
+#collage{
+    opacity: .6;
+}
+
+/* Makes services cards smaller */
+.services1{
+    height: 250px;
+}
+
+/* moving the services to the center */
+#services, #services2, #services3{
+    margin-left:250px;
+}
+
+/* Services picture border */
+.card-content{
+    border: 10px, black;
+}
+
+
+/* centering form */
+#formContainer{
+    margin-left: 400px;
+}
+
+/* submit button on form */
+#formSubmit{
+    display: flex;
+    justify-content: center;
+    height: 55px;
+}
+
+#selectMenu{
+    font-size: 14px;
+}
+
+
+
+span {
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 25px;
+}   
+
+
+/* body {
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+
+
+/* customize this alert */
+span.badge.new:after {
+    content: " NEW helper!";
+}
+span.badge.new {
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: hsl(0, 80%, 43%);
+    border-radius: 2px;
+}
+
+/*Footer*/
+.developed-by {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /* margin-left: 400px; */
+    text-align: center;
+}
+
+/* for hire title */
+
+.page-title {
+    font-size: 50px;
+    margin-left: 375px;
+}
+
+/* slogan */
+.slogan{
+    font-size: 25px;
+}
+
+/* nav bar */
+.top-nav {
+    height: 90px;
+}
+

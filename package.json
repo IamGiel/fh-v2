@@ -1,0 +1,32 @@
+{
+  "name": "for-hire",
+  "version": "1.0.0",
+  "description": "A app for users to find and hire professionals for local services. Also a place for professionals to submit their skill set and availability for hire. Sign up today!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jnifong/For-Hire.git"
+  },
+  "author": "Team 02",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jnifong/For-Hire/issues"
+  },
+  "homepage": "https://github.com/Jnifong/For-Hire#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "multer": "^1.3.0",
+    "mysql2": "^1.5.1",
+    "path": "^0.12.7",
+    "sequelize": "^4.32.1",
+    "underscore": "^1.8.3",
+    "validator": "^9.3.0"
+  },
+  "devDependencies": {}
+}

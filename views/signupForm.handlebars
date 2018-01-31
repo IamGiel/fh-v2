@@ -1,0 +1,182 @@
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col m6 offset-m3">
+            <div class="card-panel blue-grey lighten-3" id="inforFormCard">
+                <span class="white-text">Please enter your information below so that you are able to be hired.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- MULTER --}}
+<div class="container">
+    <h1>Profile Image</h1>
+    {{!--
+    <%= typeof msg != 'undefined' ? msg : '' %> --}}
+        <div class="entry">
+
+        </div>
+
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="file-field input-field">
+                <div class="btn grey">
+                    <span>File</span>
+                    <input name="myImage" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+            <button type="submit" class="btn">Use Photo</button>
+        </form>
+        <br>
+        <img src="{{file}}" class="responsive-img">
+</div>
+{{!-- MULTER --}}
+
+
+<div class="container" id="formContainer">
+    {{!-- form action --}}
+    <form action="/api/posts" method="POST" role="form">
+
+        <div class="row">
+            <form class="col m6">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">image</i>
+                        <input id="icon_prefix" type="text" class="validate url_link">
+                        <label for="icon_prefix">Image Link</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col m6">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" class="validate inputName">
+                        <label for="icon_prefix">Name</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">home</i>
+                         {{!-- I ADDED DATA MASK CHECK: http://www.jasny.net/bootstrap/javascript/#inputmask FOR MORE INFO--}}
+                        <input id="icon_prefix" type="text" class="validate inputZipcode form-control" data-mask="99999">
+                        <label for="icon_prefix">Zipcode</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        {{!-- I ADDED DATA MASK CHECK: http://www.jasny.net/bootstrap/javascript/#inputmask FOR MORE INFO--}}
+                        <input id="icon_telephone" type="tel" class=" validate inputPhone form-control" data-mask="(999) 999-9999">
+                        <label for="icon_telephone">Telephone</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" type="email" class="validate inputEmail">
+                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="inputService col s6">
+                    <i class="material-icons prefix">subdirectory_arrow_right</i>
+                    <label id="selectMenu">Select Skill</label>
+                    <select id="inputService">
+                        <option value="" id="choose">Choose your option</option>
+                        <option value="1">Customer Service</option>
+                        <option value="2">Handy Work</option>
+                        <option value="3">Culinary</option>
+                        <option value="4">Legal</option>
+                        <option value="5">Media</option>
+                        <option value="6">Real Estate</option>
+                        <option value="7">Education</option>
+                        <option value="8">Finance</option>
+                        <option value="9">Technology</option>
+                    </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </form> 
+    {{!-- form ends --}}
+    
+
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
+</div>
+
+<!-- Modal Trigger -->
+<div id="formSubmit">
+    <button data-target="modal1" class="btn modal-trigger light-blue accent-4">Submit
+        <i class="material-icons right">send</i>
+    </button>
+</div>
+
+<br><br>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>You're Hired!</h4>
+            <p>
+                Well, not yet. 
+                <br><br> 
+                You're in our database and will now show up under the service you selected to those who are looking
+                to hire people like you.
+            </p>
+    </div>
+
+    <div class="modal-footer">
+        <a href="/homepage" class="modal-action modal-close waves-effect waves-green btn-flat ">Home</a>
+    </div>
+</div>
+
+<!-- js files are needed to ensure that the materialize formats are consistent  -->
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('select').material_select();
+    });
+    $('.modal').modal({
+        dismissible: false, // Modal can be dismissed by clicking outside of the modal
+        opacity: .5, // Opacity of modal background
+        inDuration: 300, // Transition in duration
+        outDuration: 200, // Transition out duration
+        startingTop: '4%', // Starting top style attribute
+        endingTop: '10%', // Ending top style attribute
+    });
+</script>

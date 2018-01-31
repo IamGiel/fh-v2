@@ -1,0 +1,73 @@
+{{!-- some header --}}
+{{!-- LEFT THIS CODE HERE TO GENERATE  --}}
+{{!-- <script>
+    var photoPic = [];
+    for (var i = 0; i < 20; i++) {
+        $.ajax({
+            url: 'https://randomuser.me/api/?gender',
+            dataType: 'json',
+            success: function (url, url2) {
+                //console.log(data);
+                //var photo = data.results[i].picture.large;
+                //console.log(data.results[0].picture.large);
+                photo = url.results[0].picture.large;
+                console.log();
+            }
+        });
+    }
+</script> --}}
+{{!-- list of available workers --}}
+
+
+
+ {{!-- {{#each workers}}  --}}
+    {{#everyNth workers 3}} 
+        {{#if isModZeroNotFirst}}
+            </div>
+        {{/if}} {{#if isModZero}}
+
+    <div class="row">
+        {{/if}}
+        <div class="col m4">
+            <div class="card">
+                <div class="card-image">
+
+                    <img src="{{this.dataValues.url_link}}">
+
+                    {{!-- <img src="/public/uploads/{{file}}"> --}}
+                    <img src="{{this.url_link}}">
+
+                    <span id="worker-name" class="card-title"></span>
+                    <a href="mailto:{{this.dataValues.email}}?Subject=For Hire" class="btn-floating halfway-fab waves-effect waves-light green"
+                        title="Send {{this.dataValues.name}} a message!">
+                        <i class="material-icons">mode_edit</i>
+                    </a>
+                </div>
+                <div class="card-content">
+                    <p id="skill">Name: {{this.dataValues.name}} </p>
+                    <p id="skill">Service: {{this.dataValues.service}} </p>
+                    <p id="zipcode">Zipcode: {{this.dataValues.zip_code}} </p>
+                    <p id="phone">Phone: {{this.dataValues.phone}}</p>
+                    <p id="email">Email: {{this.dataValues.email}}</p>
+                </div>
+            </div>
+        </div>
+        {{#if isLast}}
+    </div>
+    {{/if}} {{/everyNth}}
+
+
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/materialize.min.js"></script>
+<link type="text/style" src="/assets/css/style.css"></script>
+
+
+
+
+
+
+
+
+
