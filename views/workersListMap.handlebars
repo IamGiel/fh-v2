@@ -9,14 +9,6 @@
     {{!-- **************************************************************************** --}}
 
 
-
-    <!DOCTYPE html>
-    <html>
-    
-    <head>
-        <title>Place ID Finder</title>
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-        <meta charset="utf-8">
         <style>
             /* Always set the map height explicitly to define the size of the div
            * element that contains the map. */
@@ -68,95 +60,82 @@
                 display: inline;
             }
             #pac-input {
-                z-index: 0;
+                z-index: 1;
                 position: absolute;
                 left: 115px;
-                top: 0px;
+                top: 96px;
                 background-color: #254f5d;
                 color: white;
+                width: 80%; 
             }
         </style>
-    </head>
+
     
-    <body>
+        {{!-- THIS IS THE TEMPLATE WE DISPLAY ON THE MAPS PAGE --}}
         <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
         <div id="map"></div>
         <div id="infowindow-content">
             <span id="place-name" class="title"></span>
             <br> Place ID
             <span id="place-id"></span>
+            <span id="zipCode">{{this.DataTypes.zip_code}}</span>
             <br>
             <span id="place-address"></span>
         </div>
 
-        {{!-- DOM ENDS --}}
+        {{!-- FRONT END JS CODE --}}
+
+        
     
         <script>
-            // This sample uses the Place Autocomplete widget to allow the user to search
-            // for and select a place. The sample then displays an info window containing
-            // the place ID and other information about the place that the user has
-            // selected.
+        function initMap() {
+            var latLong = [];
+            //********************************  TRYING TO PARSE LAT AND LNG USING GOOGLE API ZIPCODE
+            var zipCode = 90650;
+                // Here we are building the URL we need to query the database
+                var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=AIzaSyBx4l2x84Yqb7HqvmtgywSwQJJwEPN_ehk";
 
-            // This example requires the Places library. Include the libraries=places
-            // parameter when you first load the API. For example:
-            // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-            var infoWindow;
-            function initMap() {
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    center: \{{this.zip_code}},
-                    zoom: 13
-                });
 
-                var input = document.getElementById('pac-input');
-                //autolocate---------------------------------------
-                
-                //end auto-locate---------------------------------------
+                // Here we run our AJAX call to the OpenWeatherMap API
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                })
+                    // We store all of the retrieved data inside of an object called "response"
+                    .done(function (response) {
 
-                var autocomplete = new google.maps.places.Autocomplete(input);
-                autocomplete.bindTo('bounds', map);
+                        // Log the queryURL
+                        console.log(queryURL);
 
-                map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+                        // Log the resulting object
+                        var geometryLocation = response.results[0].geometry.location;
+                        latLong.push(geometryLocation);
+                        console.log("//****************",latLong[0].lat)
+                        console.log("//****************", latLong[0].lng)
+                        console.log(typeof(latLong[0].lat));
+                        console.log(typeof (latLong[0].lng));
+                        // Transfer content to HTML
 
-                var infowindow = new google.maps.InfoWindow();
-                var infowindowContent = document.getElementById('infowindow-content');
-                infowindow.setContent(infowindowContent);
-                var marker = new google.maps.Marker({
-                    map: map
-                });
-                marker.addListener('click', function () {
-                    infowindow.open(map, marker);
-                });
-
-                autocomplete.addListener('place_changed', function () {
-                    infowindow.close();
-                    var place = autocomplete.getPlace();
-                    if (!place.geometry) {
-                        return;
-                    }
-
-                    if (place.geometry.viewport) {
-                        map.fitBounds(place.geometry.viewport);
-                    } else {
-                        map.setCenter(place.geometry.location);
-                        map.setZoom(17);
-                    }
-
-                    // Set the position of the marker using the place ID and location.
-                    marker.setPlace({
-                        placeId: place.place_id,
-                        location: place.geometry.location
                     });
-                    marker.setVisible(true);
+            //**************** TRYING TO INSERT LANG AND LONG TO LOCATE USER ZIPCODE ON THE MAP DYNAMICALLY WITH MARKER
+                var lat_ = latLong[0].lat;
+                var long_ = latLong[0].lng;
+                var myLatLng = { lat: lat_, lng: long_  };
 
-                    infowindowContent.children['place-name'].textContent = place.name;
-                    //infowindowContent.children['place-id'].textContent = place.place_id;
-                    infowindowContent.children['place-address'].textContent =
-                        place.formatted_address;
-                    infowindow.open(map, marker);
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 4,
+                    center: myLatLng
+                });
+
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'Hello World!'
                 });
             }
         </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC45Qq8LHXy1dYPf6eIdlXTtmwnhRlrdPw&libraries=places&callback=initMap" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC45Qq8LHXy1dYPf6eIdlXTtmwnhRlrdPw&libraries=places&callback=initMap"></script>
     </body>
     
     </html>

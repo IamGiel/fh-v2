@@ -33,6 +33,11 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             validate: {len: [1] }
         },
+        comment: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+            validate: { len: [1] }
+        },
         date: {
             type: DataTypes.DATE,
             defaultValue: new Date()
