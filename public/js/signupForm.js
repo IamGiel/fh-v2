@@ -14,6 +14,8 @@ $(document).ready(function () {
       name: $(".inputName").val().trim(),
       // zip-code from input
       zip_code: $(".inputZipcode").val().trim(),
+     //comment on expertise
+      comment: $(".expert_on").val().trim(),
       // email from input
       email: $(".inputEmail").val().trim(),
       // phone from input
@@ -37,6 +39,7 @@ $(document).ready(function () {
       $(".url_link").val(""),
       $(".inputName").val(""),
       $(".inputZipcode").val(""),
+      $(".expert_on").val().trim(),
       $(".inputEmail").val(""),
       $(".inputPhone").val(""),
       $("#inputService").val("")

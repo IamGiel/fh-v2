@@ -81,6 +81,7 @@ module.exports = function (app) {
             url_link: req.body.url_link,
             name: req.body.name,
             zip_code: req.body.zip_code,
+            comment: req.body.comment,
             email: req.body.email,
             phone: req.body.phone,
             service: req.body.service
