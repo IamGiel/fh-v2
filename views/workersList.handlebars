@@ -40,10 +40,24 @@
                     <img src="{{this.url_link}}">
 
                     <span id="worker-name" class="card-title"></span>
-                    <a href="mailto:{{this.dataValues.email}}?Subject=For Hire" class="btn-floating halfway-fab waves-effect waves-light green"
-                        title="Send {{this.dataValues.name}} a message!">
+                <p>
+                    <a href="mailto:{{this.dataValues.email}}?Subject=For Hire" class='btn-floating halfway-right btn-large waves-effect waves-light pink'>
                         <i class="material-icons">mode_edit</i>
                     </a>
+                </p>
+                <p>
+                    <a href="mailto:{{this.dataValues.email}}?Subject=For Hire" class='btn-floating right-fab btn-large waves-effect waves-light purple'>
+                        <i class="material-icons">map</i>
+                    </a>
+                </p> 
+                    {{!-- worker map --}}
+                <form class="worker-zipcode">
+                    <input type="hidden" class="zipcode-text" type="text" value={{this.dataValues.zip_code}}>
+                    <br>
+                    <button type="submit" class="btn btn-success btn-block">Look up worker.</button>
+                </form>
+
+
                 </div>
                 <div class="card-content">
                     <p id="skill">Name: {{this.dataValues.name}} </p>
@@ -57,6 +71,9 @@
         {{#if isLast}}
     </div>
     {{/if}} {{/everyNth}}
+
+
+    
 
 
 

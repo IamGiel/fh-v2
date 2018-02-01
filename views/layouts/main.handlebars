@@ -48,11 +48,32 @@
             </div>
         </div>
     </footer>
+
+
+
     <script type="text/javascript" src="/js/signupForm.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="/js/materialize.min.js"></script>
     <link type="text/style" src="/assets/css/style.css">
+
+    <script>
+        $(".worker-zipcode").on("submit", function (event) {
+            event.preventDefault(); //Ajax call to our routes the give the put requests
+            //that is listening the information it needs to run.We reload the 
+            //location only here, because it's more seamless and we're
+            //only changing stuff in the body.
+
+            var zip_code = $(this).children(".zipcode-text").val();
+            $.ajax({
+                method: "GET",
+                url: "/workersListMap/"
+                    + zip_code
+            })
+        });
+
+    </script>
 </body>
+
 
 </html>
 
