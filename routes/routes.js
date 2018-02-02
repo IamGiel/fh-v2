@@ -17,10 +17,12 @@ module.exports = function (app) {
     });
 
     // GET all types of workers on a MAP with markers
-    app.get("/workersListMap/:service", function (req, res) {
-        db.Worker.findAll({ where: { Service: req.params.service } })
+    app.get("/workersListMap/:zip_code", function (req, res) {
+        console.log("HBSOBJECT HERE >>>>>>", req.params);
+        db.Worker.findAll({ where: { zip_code: req.params.zip_code } })
             .then(function (data) {
                 var hbsObject = { workers: data };
+                console.log("HBSOBJECT HERE >>>>>>",hbsObject);
                 //console.log(hbsObject.workers[0].dataValues);
                 res.render("workersListMap", hbsObject)
             });
@@ -31,7 +33,7 @@ module.exports = function (app) {
 
         // Here we are building the URL we need to query the API
         var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + req.params.zip_code + "&key=AIzaSyBx4l2x84Yqb7HqvmtgywSwQJJwEPN_ehk";
-
+        console.log("THIS IS TRIGGERED HERE");
         // Here we run our AJAX call to the API
         $.ajax({
             url: queryURL,
