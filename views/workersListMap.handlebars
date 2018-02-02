@@ -70,7 +70,7 @@
             }
         </style>
 
-    
+     {{#each workers}}
         {{!-- THIS IS THE TEMPLATE WE DISPLAY ON THE MAPS PAGE --}}
         <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
         <div id="map"></div>
@@ -78,24 +78,24 @@
             <span id="place-name" class="title"></span>
             <br> Place ID
             <span id="place-id"></span>
-            <span id="zipCode">{{this.DataTypes.zip_code}}</span>
+            
+            <span id="zipCode">{{this.dataValues.zip_code}}</span>
+         
             <br>
             <span id="place-address"></span>
         </div>
 
         {{!-- FRONT END JS CODE --}}
-
+     {{/each}}
         
     
         <script>
-        function initMap() {
-            var latLong = [];
-            //********************************  TRYING TO PARSE LAT AND LNG USING GOOGLE API ZIPCODE
-            var zipCode = 90650;
+         function initMap() {
+                //********************************  TRYING TO PARSE LAT AND LNG USING GOOGLE API ZIPCODE
+                var zipCode = document.getElementById('zipCode').textContent;
+                console.log(zipCode);
                 // Here we are building the URL we need to query the database
                 var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=AIzaSyBx4l2x84Yqb7HqvmtgywSwQJJwEPN_ehk";
-
-
                 // Here we run our AJAX call to the OpenWeatherMap API
                 $.ajax({
                     url: queryURL,
@@ -103,37 +103,35 @@
                 })
                     // We store all of the retrieved data inside of an object called "response"
                     .done(function (response) {
-
                         // Log the queryURL
                         console.log(queryURL);
-
+                        console.log(response);
                         // Log the resulting object
                         var geometryLocation = response.results[0].geometry.location;
+                        var latLong = [];
                         latLong.push(geometryLocation);
-                        console.log("//****************",latLong[0].lat)
+                        console.log("//****************", latLong[0].lat)
                         console.log("//****************", latLong[0].lng)
-                        console.log(typeof(latLong[0].lat));
+                        console.log(typeof (latLong[0].lat));
                         console.log(typeof (latLong[0].lng));
                         // Transfer content to HTML
-
+                        //**************** TRYING TO INSERT LANG AND LONG TO LOCATE USER ZIPCODE ON THE MAP DYNAMICALLY WITH MARKER
+                        var lat_ = latLong[0].lat;
+                        var long_ = latLong[0].lng;
+                        var myLatLng = { lat: lat_, lng: long_ };
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 4,
+                            center: myLatLng
+                        });
+                        var marker = new google.maps.Marker({
+                            position: myLatLng,
+                            map: map,
+                            title: 'Hello World!'
+                        });
                     });
-            //**************** TRYING TO INSERT LANG AND LONG TO LOCATE USER ZIPCODE ON THE MAP DYNAMICALLY WITH MARKER
-                var lat_ = latLong[0].lat;
-                var long_ = latLong[0].lng;
-                var myLatLng = { lat: lat_, lng: long_  };
-
-
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 4,
-                    center: myLatLng
-                });
-
-                var marker = new google.maps.Marker({
-                    position: myLatLng,
-                    map: map,
-                    title: 'Hello World!'
-                });
             }
+
+            
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC45Qq8LHXy1dYPf6eIdlXTtmwnhRlrdPw&libraries=places&callback=initMap"></script>
     </body>
