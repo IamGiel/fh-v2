@@ -27,27 +27,27 @@ module.exports = function (app) {
                 res.render("workersListMap", hbsObject)
             });
     });
-    //zip_code 
-    app.get("/workersListMap/:zip_code", function (req, res) {
+    // //zip_code 
+    // app.get("/workersListMap/:zip_code", function (req, res) {
 
 
-        // Here we are building the URL we need to query the API
-        var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + req.params.zip_code + "&key=AIzaSyBx4l2x84Yqb7HqvmtgywSwQJJwEPN_ehk";
-        console.log("THIS IS TRIGGERED HERE");
-        // Here we run our AJAX call to the API
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-            // We store all of the retrieved data inside of an object called "response"
-            .done(function (response) {
-                // Log the resulting object
-                console.log(response.results[0].geometry.location);
-                var hbsObject = { zip_code: response.results[0].geometry.location };
-                //console.log(hbsObject.workers[0].dataValues);
-                res.render("workersListMap", hbsObject)
-            });    
-    });
+    //     // Here we are building the URL we need to query the API
+    //     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + req.params.zip_code + "&key=AIzaSyBx4l2x84Yqb7HqvmtgywSwQJJwEPN_ehk";
+    //     console.log("THIS IS TRIGGERED HERE");
+    //     // Here we run our AJAX call to the API
+    //     $.ajax({
+    //         url: queryURL,
+    //         method: "GET"
+    //     })
+    //         // We store all of the retrieved data inside of an object called "response"
+    //         .done(function (response) {
+    //             // Log the resulting object
+    //             console.log(response.results[0].geometry.location);
+    //             var hbsObject = { zip_code: response.results[0].geometry.location };
+    //             //console.log(hbsObject.workers[0].dataValues);
+    //             res.render("workersListMap", hbsObject)
+    //         });    
+    // });
     
 
     // GET route - homePage

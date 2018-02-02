@@ -51,11 +51,7 @@
 
 
 
-    <script type="text/javascript" src="/js/signupForm.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="/js/materialize.min.js"></script>
-    <link type="text/style" src="/assets/css/style.css">
-
+    
     <script>
         $(".worker-zipcode").on("submit", function (event) {
             event.preventDefault(); //Ajax call to our routes the give the put requests
@@ -73,7 +69,12 @@
 
     </script>
 </body>
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZTe7HpwggsCf8pYSBQEy5iBRBiZgj6j4&callback=getLocation"></script>
 
+<script type="text/javascript" src="/js/signupForm.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/materialize.min.js"></script>
+<link type="text/style" src="/assets/css/style.css">
 
 </html>
 
