@@ -14,7 +14,7 @@
     "dialect": "mysql"
   },
 "production": {
-  "use_env_variable": "DATABASE_URL",
+  "use_env_variable": "JAWS_DB",
   "username": "zoo4roh2g4o7rm79",
   "password": "tqsdshjnpqxwqiqy",
   "database": "for_hire",
