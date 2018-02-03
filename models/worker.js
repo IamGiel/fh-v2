@@ -29,8 +29,8 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         service: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            allowNull: true,
             validate: {len: [1] }
         },
         comment: {
