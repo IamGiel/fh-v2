@@ -46,8 +46,9 @@
                     </a>
                 </p>
                 <p>
-                    <a href="https://calendar.google.com/calendar/r" class='btn-floating right btn-large waves-effect waves-light teal'>
-                        <i class="material-icons">event_available</i>
+                    <a href="http://localhost:8080/herewechat/:name" class='btn-floating right btn-large waves-effect waves-light teal'>
+                        <input type="hidden" class="zipcode-text" type="text" value={{this.dataValues.name}}>
+                        <i class="material-icons">chat</i>
                     </a>
                 </p>
                     {{!-- worker map --}}

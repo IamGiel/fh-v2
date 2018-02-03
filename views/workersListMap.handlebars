@@ -70,8 +70,7 @@
     </style>
     
     {{#each workers}} {{!-- THIS IS THE TEMPLATE WE DISPLAY ON THE MAPS PAGE --}}
-    <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
-    <div id="map"></div>
+    <div id="map" id="geolocation-button"></div>
     <div id="infowindow-content">
         <span id="place-name" class="title"></span>
         <br> Place ID
@@ -87,6 +86,15 @@
     
     
     <script>
+        const $geolocateButton = document.getElementById('geolocation-button');
+        $geolocateButton.addEventListener('click', geolocate);
+
+        function geolocate() {
+            if (window.navigator && window.navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(onGeolocateSuccess, onGeolocateError);
+            }
+        }
+
         function initMap() {
             //********************************  TRYING TO PARSE LAT AND LNG USING GOOGLE API ZIPCODE
             var zipCode = document.getElementById('zipCode').textContent;

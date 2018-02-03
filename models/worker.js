@@ -45,8 +45,31 @@ module.exports = function (sequelize, DataTypes) {
     }, {
             timestamps: false,
             freezeTableName: true
-        });
+        }
+    
+    );
 
     return Worker;
     
 }
+
+
+// module.exports = function (sequelize, DataTypes) {
+//     var tableName = sequelize.define("tableName", {
+
+//         name: {
+//             type: DataTypes.STRING,
+//             allowNull: false,
+//             validate: {
+//                 isAlpha: { msg: "only letters please" }
+//             }
+//         }
+//     },{ 
+//             timestamps: false,
+//             freezeTableName: true
+//            }
+//     );
+    
+//     return tableName;
+    
+// }

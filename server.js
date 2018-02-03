@@ -8,6 +8,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 const path = require('path');
 var _ = require("underscore");
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 
 // Sets up the Express App
