@@ -78,7 +78,7 @@ io.on('connection', function(socket){
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync().then(function () {
-  http.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+  http.listen(process.env.PORT || 8080, function () {
+    console.log('listening on', http.address().port);
   });
 });
