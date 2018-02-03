@@ -1,5 +1,3 @@
-<br>
-
 <div class="container">
     <div class="row">
         <div class="col m6 offset-m3">
@@ -27,12 +25,12 @@
         </div>
 
         <div class="row">
-            <form class="col m6">
+            <form class="col m12">
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
                         <input id="icon_prefix" type="text" class="validate inputName">
-                        <label for="icon_prefix">Name</label>
+                        <label class="inputName" for="icon_prefix">Name</label>
                     </div>
                 </div>
             </form>
@@ -91,12 +89,24 @@
         <div class="row">
             <form class="col s12">
                 <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">pan_tool</i>
+                        <input id="password" type="text" class="validate inputPassword">
+                        <label for="password" data-error="wrong" data-success="right">Password</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
                     <div class="inputService col s6">
                     <i class="material-icons prefix">subdirectory_arrow_right</i>
-                    <label id="selectMenu">Select Skill</label>
+                    <label id="selectMenu">Select Category</label>
                     <select id="inputService">
                         <option value="" id="choose">Choose your option</option>
-                        <option value="1">Customer Service</option>
+                        <option value="1">Personal Assistance</option>
                         <option value="2">Handy Work</option>
                         <option value="3">Culinary</option>
                         <option value="4">Legal</option>

@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col m6 offset-m3">
+            <div class="card-panel blue-grey lighten-3" id="login-card">
+                <span class="white-text">Please enter your log-in information below.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="formContainer">
+    {{!-- form action --}}
+<form action="/api/login/" method="post">
+        <div class="row">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">email</i>
+                        <input name="email" type="email" class="validate inputEmail">
+                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+        </div>
+
+        <div class="row">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">pan_tool</i>
+                        <input name="password" type="text" class="validate inputPassword">
+                        <label for="password" data-error="wrong" data-success="right">Password</label>
+                    </div>
+                </div>
+        </div>
+        <div class="row" id="formSubmit">
+            <button class="btn login-button light-blue accent-4" id="tempLoginLink">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+        </div>
+    </form>
+</div>
+
+<br>
+<br>
+
+
+<!-- js files are needed to ensure that the materialize formats are consistent  -->
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>

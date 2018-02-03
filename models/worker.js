@@ -9,9 +9,9 @@ module.exports = function (sequelize, DataTypes) {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                isAlpha: { msg: "--<@@@@@@ NO NUMBERS @@@@@@>--"}
-                } 
+            // validate: {
+            //     isAlpha: { msg: "--<@@@@@@ NO NUMBERS @@@@@@>--"}
+            //     } 
         },
         
         zip_code: {
@@ -24,6 +24,27 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             validator: { isEmail: true }
         },
+
+
+        password_hash: DataTypes.STRING,
+        password: {
+            type: DataTypes.VIRTUAL,
+            set: function (val) {
+                // Remember to set the data value, otherwise it won't be validated
+                this.setDataValue('password', val);
+                this.setDataValue('password_hash', this.salt + val);
+            },
+            validate: {
+                isLongEnough: function (val) {
+                    if (val.length < 2) {
+                        throw new Error("Please choose a longer password")
+                    }
+                }
+            }
+        },
+
+
+
         phone: {
             type: DataTypes.STRING,
             allowNull: false
@@ -52,24 +73,3 @@ module.exports = function (sequelize, DataTypes) {
     return Worker;
     
 }
-
-
-// module.exports = function (sequelize, DataTypes) {
-//     var tableName = sequelize.define("tableName", {
-
-//         name: {
-//             type: DataTypes.STRING,
-//             allowNull: false,
-//             validate: {
-//                 isAlpha: { msg: "only letters please" }
-//             }
-//         }
-//     },{ 
-//             timestamps: false,
-//             freezeTableName: true
-//            }
-//     );
-    
-//     return tableName;
-    
-// }

@@ -2,8 +2,6 @@
 // Grabbing our models
 var db = require("../models");
 
-
-
 // Routes
 // =============================================================
 module.exports = function (app) {
@@ -31,18 +29,26 @@ module.exports = function (app) {
     });
 
     //chatbox page
-    app.get("/herewechat/:name", function (req, res) {
-        db.Worker.findAll({ where: { name: req.params.name } })
-            .then(function (data) {
-                var hbsObject = { name: data };
-                //console.log(hbsObject.workers[0].dataValues);
-
-                res.render("chatbox");
+    app.post("/api/login", function (req, res) {
+        db.Worker.findAll({ where: { 
+            email: req.body.email,
+            password: req.body.password
+             } 
+        }).then(function (data) {
+            if (data.length === 0) {
+                res.render("login");
+            }
+            else {
+            console.log(data);
+                var hbsObject = { user: data };
+                res.render("chatBox", hbsObject);
+            }
             });
-        
     });
 
-    
+    app.get("/chat/:id", function (req, res) {
+        res.render("chatBoxHirer");
+});
 
     // GET route - homePage
     app.get("/homePage", function (req, res) {
@@ -52,7 +58,7 @@ module.exports = function (app) {
                 worker: data
             };
             console.log("THIS is workers DATA heyyooo", hbsObject);
-            res.render("homePage", hbsObject)
+            res.render("homePage")
         })
     });
 
@@ -60,6 +66,10 @@ module.exports = function (app) {
     app.get("/signupForm", function (req, res) {
             res.render("signupForm");
     });
+
+    app.get("/login", function (req, res) {
+        res.render("login");
+});
 
     app.get("/servicesList", function(req, res) {
         res.render("servicesList");
@@ -79,6 +89,7 @@ module.exports = function (app) {
             zip_code: req.body.zip_code,
             comment: req.body.comment,
             email: req.body.email,
+            password: req.body.password,
             phone: req.body.phone,
             service: req.body.service
         })
@@ -86,6 +97,7 @@ module.exports = function (app) {
                 res.json(dbPost);
             });
     });
+
 
 
     // =============================================================

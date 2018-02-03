@@ -5,21 +5,19 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 var bodyParser = require("body-parser");
 const path = require('path');
 var _ = require("underscore");
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-
 
 // Sets up the Express App
 // =============================================================
-var app = express();
 var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 var db = require("./models");
-
 
 
 // Sets up the Express app to handle data parsing
@@ -65,10 +63,16 @@ app.set('view engine', 'handlebars');
 // =============================================================
 require('./routes/routes.js')(app);
 
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
+
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync().then(function () {
-  app.listen(PORT, function () {
+  http.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
 });

@@ -18,6 +18,8 @@ $(document).ready(function () {
       comment: $(".expert_on").val().trim(),
       // email from input
       email: $(".inputEmail").val().trim(),
+      // password from input
+      password: $(".inputPassword").val().trim(),
       // phone from input
       phone: $(".inputPhone").val().trim(),
       // service input
@@ -41,6 +43,7 @@ $(document).ready(function () {
       $(".inputZipcode").val(""),
       $(".expert_on").val().trim(),
       $(".inputEmail").val(""),
+      $(".inputPassword").val(""),
       $(".inputPhone").val(""),
       $("#inputService").val("")
   });
