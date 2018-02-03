@@ -1,9 +1,9 @@
 $(document).ready(function () {
     
     
-    
+    $("#yourLoggedin").hide();
     $(function () {
-        $("#yourLoggedin").hide();
+        
         $(".login-button").on("click", function () {
             event.preventDefault();
             $("#nav-mobile, #yourLoggedin ").toggle();
