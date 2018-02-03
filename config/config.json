@@ -15,12 +15,11 @@
   },
 "production": {
   "use_env_variable": "JAWSDB_URL",
-  "username": "zoo4roh2g4o7rm79",
-  "password": "tqsdshjnpqxwqiqy",
+  "username": "yq5et8zwb6k7g4fp",
+  "password": "xji2830lbqz4g295",
   "database": "for_hire",
-  "host": "otwsl2e23jrxcqvx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  "dialect": "mysql",
-  "use_env_variable": "mysql://zoo4roh2g4o7rm79:tqsdshjnpqxwqiqy@otwsl2e23jrxcqvx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/nbssr3yfhg79rip5"
+  "host": "ol5tz0yvwp930510.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+  "dialect": "mysql"
 
   }
 }
