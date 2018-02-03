@@ -4,7 +4,6 @@
   "description": "A app for users to find and hire professionals for local services. Also a place for professionals to submit their skill set and availability for hire. Sign up today!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {

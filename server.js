@@ -16,12 +16,8 @@ var _ = require("underscore");
 // Sets up the Express App
 // =============================================================
 
-if (process.env.JAWSDB_URL) {
-  //Heroku deployment
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
 var PORT = process.env.PORT || 8080;
-}
+
 // Requiring our models for syncing
 var db = require("./models");
 
