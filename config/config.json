@@ -13,12 +13,14 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  "production": {
-    "username": "zoo4roh2g4o7rm79",
-    "password": "tqsdshjnpqxwqiqy",
-    "database": "for_hire",
-    "host": "otwsl2e23jrxcqvx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql",
-    "use_env_variable": "mysql://zoo4roh2g4o7rm79:tqsdshjnpqxwqiqy@otwsl2e23jrxcqvx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/nbssr3yfhg79rip5"
+"production": {
+  "use_env_variable": "DATABASE_URL",
+  "username": "zoo4roh2g4o7rm79",
+  "password": "tqsdshjnpqxwqiqy",
+  "database": "for_hire",
+  "host": "otwsl2e23jrxcqvx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+  "dialect": "mysql",
+  "use_env_variable": "mysql://zoo4roh2g4o7rm79:tqsdshjnpqxwqiqy@otwsl2e23jrxcqvx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/nbssr3yfhg79rip5"
+
   }
 }
