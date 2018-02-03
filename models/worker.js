@@ -24,27 +24,10 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             validator: { isEmail: true }
         },
-
-
-        password_hash: DataTypes.STRING,
         password: {
-            type: DataTypes.VIRTUAL,
-            set: function (val) {
-                // Remember to set the data value, otherwise it won't be validated
-                this.setDataValue('password', val);
-                this.setDataValue('password_hash', this.salt + val);
-            },
-            validate: {
-                isLongEnough: function (val) {
-                    if (val.length < 2) {
-                        throw new Error("Please choose a longer password")
-                    }
-                }
-            }
+            type: DataTypes.STRING,
+            allowNull: false,
         },
-
-
-
         phone: {
             type: DataTypes.STRING,
             allowNull: false
