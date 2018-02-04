@@ -23,6 +23,8 @@
     "express-handlebars": "^3.0.0",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.1",
+    "node": "^9.2.0",
+    "npm": "^5.5.1",
     "path": "^0.12.7",
     "sequelize": "^4.32.6",
     "socket.io": "^2.0.4",
