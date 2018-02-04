@@ -16,8 +16,8 @@ pids
 
 /node_modules
 
-/.vscode
+.vscode
 
 
 
-/.env
+.env
