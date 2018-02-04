@@ -17,7 +17,7 @@ var cool = require('cool-ascii-faces');
 // Sets up the Express App
 // =============================================================
 
-var PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3338;
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -75,7 +75,7 @@ io.on('connection', function(socket){
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync().then(function () {
-  app.listen(process.env.PORT || 8080, function () {
-    console.log("Express server listening on port", PORT);
+  app.listen(PORT, () => {
+    console.log("listening", PORT);  
   });
 });
