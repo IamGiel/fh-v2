@@ -2,7 +2,7 @@
   "name": "for-hire",
   "version": "1.0.0",
   "description": "A app for users to find and hire professionals for local services. Also a place for professionals to submit their skill set and availability for hire. Sign up today!",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
