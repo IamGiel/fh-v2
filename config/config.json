@@ -2,23 +2,12 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "for_hire",
+    "database": "fh-v2",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "for_hire",
-    "host": "127.0.0.1",
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
-  },
-"production": {
-  "use_env_variable": "JAWSDB_URL",
-  "username": "tbpnl996avo8p65m",
-  "password": "duri1c3l2m3n1p2v",
-  "host": "wp433upk59nnhpoh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  "dialect": "mysql"
-
   }
 }
