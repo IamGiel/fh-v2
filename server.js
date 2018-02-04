@@ -11,6 +11,7 @@ var io = require('socket.io')(http);
 var bodyParser = require("body-parser");
 const path = require('path');
 var _ = require("underscore");
+var cool = require('cool-ascii-faces');
 
 
 // Sets up the Express App
@@ -74,7 +75,7 @@ io.on('connection', function(socket){
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync().then(function () {
-  http.listen(process.env.PORT || 8080, function () {
-    console.log('listening on', http.address().port);
+  app.listen(process.env.PORT || 8080, function () {
+    console.log("Express server listening on port", PORT);
   });
 });
