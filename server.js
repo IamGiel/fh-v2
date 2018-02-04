@@ -71,6 +71,6 @@ io.on('connection', function(socket){
 
 db.sequelize.sync().then(function () {
   app.listen(process.env.PORT, function () {
-    console.log("Nice, its looks like were connected at port ", this.address().port, app.settings.env);
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   });
 });
