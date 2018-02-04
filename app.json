@@ -1,7 +1,7 @@
 {
   "name": "fh-v2",
   "scripts": {
-    "postdeploy": "node server.js"
+    "postdeploy": "server.js"
   },
   "env": {
     "JAWSDB_URL": {
