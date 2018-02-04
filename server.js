@@ -15,8 +15,9 @@ var _ = require("underscore");
 // Sets up the Express App
 // =============================================================
 
-var PORT = process.env.PORT || 8080;
 
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number);
 // Requiring our models for syncing
 var db = require("./models");
 
