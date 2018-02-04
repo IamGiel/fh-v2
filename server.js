@@ -13,7 +13,6 @@ const path = require('path');
 var _ = require("underscore");
 var cool = require('cool-ascii-faces');
 
-
 // Sets up the Express App
 // =============================================================
 
@@ -21,7 +20,6 @@ const PORT = process.env.PORT || 3338;
 
 // Requiring our models for syncing
 var db = require("./models");
-
 
 // Sets up the Express app to handle data parsing
 // parse application/x-www-form-urlencoded
@@ -55,9 +53,6 @@ var hbs = exphbs.create({
     }
   }
 });
-
-
-
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
