@@ -71,7 +71,7 @@ io.on('connection', function(socket){
 // =============================================================
 
 db.sequelize.sync().then(function () {
-  app.listen(PORT, function () {
+  app.listen(process.env.PORT || 5000, function () {
     console.log("App now listening at localhost:" + PORT);
   });
 });
