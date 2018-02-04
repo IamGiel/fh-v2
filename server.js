@@ -15,7 +15,7 @@ var _ = require("underscore");
 // Sets up the Express App
 // =============================================================
 
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT);
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -70,7 +70,7 @@ io.on('connection', function(socket){
 // =============================================================
 
 db.sequelize.sync().then(function () {
-  app.listen(process.env.PORT || 8080, function () {
+  app.listen(process.env.PORT, function () {
     console.log("Nice, its looks like were connected at port ", this.address().port, app.settings.env);
   });
 });
