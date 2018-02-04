@@ -15,12 +15,12 @@ var _ = require("underscore");
 // Sets up the Express App
 // =============================================================
 
-app.set('port', process.env.PORT);
+var PORT = process.env.PORT || 5000;
 
 // Requiring our models for syncing
 var db = require("./models");
 
-// Sets up the Express app to handle data parsing
+// Sets up the Express app to  handle data parsing
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
@@ -70,7 +70,7 @@ io.on('connection', function(socket){
 // =============================================================
 
 db.sequelize.sync().then(function () {
-  app.listen(process.env.PORT, function () {
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  app.listen(PORT, function () {
+    console.log("App now listening at localhost:" + PORT);
   });
 });
