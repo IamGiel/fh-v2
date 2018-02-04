@@ -16,8 +16,8 @@ var _ = require("underscore");
 // =============================================================
 
 
-var port_number = server.listen(process.env.PORT || 3000);
-app.listen(port_number);
+var PORT = process.env.PORT || 3000;
+
 // Requiring our models for syncing
 var db = require("./models");
 
@@ -71,7 +71,7 @@ io.on('connection', function(socket){
 // =============================================================
 
 db.sequelize.sync().then(function () {
-  app.listen(process.env.PORT || 5000, function () {
+  app.listen(process.env.PORT || 3000, function () {
     console.log("App now listening at localhost:" + PORT);
   });
 });
