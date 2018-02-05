@@ -1,141 +1,80 @@
+// load all the things we need
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-
+// load up the user model
 var Worker = require('../models/worker');
+// load the auth variables
 var configAuth = require('./auth');
 
 module.exports = function (passport) {
 
-
-    passport.serializeUser(function (user, done) {
-        done(null, user.id);
+    // used to serialize the worker for the session
+    passport.serializeWorker(function (worker, done) {
+        done(null, worker.id);
     });
 
-    passport.deserializeUser(function (id, done) {
-        User.findById(id, function (err, user) {
-            done(err, user);
+    // used to deserialize the worker
+    passport.deserializeWorker(function (id, done) {
+        Worker.findById(id, function (err, worker) {
+            done(err, worker);
         });
     });
 
+    // code for login (use('local-login', new LocalStategy))
+    // code for signup (use('local-signup', new LocalStategy))
 
-    passport.use('local-signup', new LocalStrategy({
-        usernameField: 'email',
-        passwordField: 'password',
-        passReqToCallback: true
-    },
-        function (req, email, password, done) {
-            process.nextTick(function () {
-                Worker.findOne({ 'local.username': email }, function (err, user) {
-                    if (err)
-                        return done(err);
-                    if (user) {
-                        return done(null, false, req.flash('signupMessage', 'That email already taken'));
-                    } else {
-                        var newUser = new User();
-                        newUser.local.username = email;
-                        newUser.local.password = newUser.generateHash(password);
-
-                        newUser.save(function (err) {
-                            if (err)
-                                throw err;
-                            return done(null, newUser);
-                        })
-                    }
-                })
-
-            });
-        }));
-
-    passport.use('local-login', new LocalStrategy({
-        usernameField: 'email',
-        passwordField: 'password',
-        passReqToCallback: true
-    },
-        function (req, email, password, done) {
-            process.nextTick(function () {
-                Worker.findOne({ 'local.username': email }, function (err, user) {
-                    if (err)
-                        return done(err);
-                    if (!user)
-                        return done(null, false, req.flash('loginMessage', 'No User found'));
-                    if (!user.validPassword(password)) {
-                        return done(null, false, req.flash('loginMessage', 'invalid password'));
-                    }
-                    return done(null, user);
-
-                });
-            });
-        }
-    ));
-
-
+    // =========================================================================
+    // FACEBOOK ================================================================
+    // =========================================================================
     passport.use(new FacebookStrategy({
+
+        // pull in our app id and secret from our auth.js file
         clientID: configAuth.facebookAuth.clientID,
         clientSecret: configAuth.facebookAuth.clientSecret,
         callbackURL: configAuth.facebookAuth.callbackURL
     },
-        function (accessToken, refreshToken, profile, done) {
+
+        // facebook will send back the token and profile
+        function (token, refreshToken, profile, done) {
+
+            // asynchronous
             process.nextTick(function () {
-                Worker.findOne({ 'facebook.id': profile.id }, function (err, user) {
+
+                // find the user in the database based on their facebook id
+                Worker.findOne({ 'facebook.id': profile.id }, function (err, worker) {
+
+                    // if there is an error, stop everything and return that
+                    // ie an error connecting to the database
                     if (err)
                         return done(err);
-                    if (user)
-                        return done(null, user);
-                    else {
-                        var newUser = new User();
-                        newUser.facebook.id = profile.id;
-                        newUser.facebook.token = accessToken;
-                        newUser.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
-                        newUser.facebook.email = profile.emails[0].value;
 
-                        newUser.save(function (err) {
+                    // if the worker is found, then log them in
+                    if (worker) {
+                        return done(null, worker); // user found, return that user
+                    } else {
+                        // if there is no user found with that facebook id, create them
+                        var newWorker = new Worker();
+
+                        // set all of the facebook information in our user model
+                        newWorker.facebook.id = profile.id; // set the users facebook id                   
+                        newWorker.facebook.token = token; // we will save the token that facebook provides to the user                    
+                        newWorker.facebook.name = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
+                        newWorker.facebook.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
+
+                        // save our user to the database
+                        newWorker.save(function (err) {
                             if (err)
                                 throw err;
-                            return done(null, newUser);
-                        })
-                        console.log(profile);
+
+                            // if successful, return the new user
+                            return done(null, newWorker);
+                        });
                     }
+
                 });
             });
-        }
 
-    ));
-
-    passport.use(new GoogleStrategy({
-        clientID: configAuth.googleAuth.clientID,
-        clientSecret: configAuth.googleAuth.clientSecret,
-        callbackURL: configAuth.googleAuth.callbackURL
-    },
-        function (accessToken, refreshToken, profile, done) {
-            process.nextTick(function () {
-                Worker.findOne({ 'google.id': profile.id }, function (err, user) {
-                    if (err)
-                        return done(err);
-                    if (user)
-                        return done(null, user);
-                    else {
-                        var newUser = new User();
-                        newUser.google.id = profile.id;
-                        newUser.google.token = accessToken;
-                        newUser.google.name = profile.displayName;
-                        newUser.google.email = profile.emails[0].value;
-
-                        newUser.save(function (err) {
-                            if (err)
-                                throw err;
-                            return done(null, newUser);
-                        })
-                        console.log(profile);
-                    }
-                });
-            });
-        }
-
-    ));
+        }));
 
 
-
-
-
-};
+}
