@@ -6,6 +6,7 @@
 	event.preventDefault();
         alert("your logged in!");
         location.reload();
+        
     });
 
     
