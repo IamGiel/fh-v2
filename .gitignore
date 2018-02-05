@@ -16,6 +16,7 @@
 *.psd
 *.ai
 
+public/**/*.pdf
 !folder/
 folder/*
 */.jpg
