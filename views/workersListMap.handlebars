@@ -1,140 +1,138 @@
+ {{!--
+<title>Google Maps Multiple Markers</title> --}} {{!--
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script> --}} {{!-- STEPS TO DO --}} {{!-- 1. Display the user location on the map onload with a marker--}} {{!-- 2. Display the
+services on that category on the map with markers --}} {{!-- ****************************************************************************
+--}}
 
 
-     {{!--
-    <title>Google Maps Multiple Markers</title> --}} {{!--
-    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script> --}} {{!-- STEPS TO DO --}} {{!-- 1. Display the user location on the map onload with a marker--}} {{!-- 2. Display the
-    services on that category on the map with markers --}} {{!-- ****************************************************************************
-    --}}
-    
-    
-    <style>
-        /* Always set the map height explicitly to define the size of the div
+<style>
+    /* Always set the map height explicitly to define the size of the div
                * element that contains the map. */
-    
-        #map {
-            height: 100%;
-        }
-    
-        /* Optional: Makes the sample page fill the window. */
-    
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    
-        .controls {
-            background-color: #fff;
-            border-radius: 2px;
-            border: 1px solid transparent;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-            box-sizing: border-box;
-            font-family: Roboto;
-            font-size: 15px;
-            font-weight: 300;
-            height: 29px;
-            margin-left: 17px;
-            margin-top: 10px;
-            outline: none;
-            padding: 0 11px 0 13px;
-            text-overflow: ellipsis;
-            width: 400px;
-        }
-    
-        .controls:focus {
-            border-color: #4d90fe;
-        }
-    
-        .title {
-            font-weight: bold;
-        }
-    
-        #infowindow-content {
-            display: none;
-        }
-    
-        #map #infowindow-content {
-            display: inline;
-        }
-    
-        #pac-input {
-            z-index: 1;
-            position: absolute;
-            left: 115px;
-            top: 96px;
-            background-color: #254f5d;
-            color: white;
-            width: 80%;
-        }
-    </style>
-    
-    {{#each workers}} {{!-- THIS IS THE TEMPLATE WE DISPLAY ON THE MAPS PAGE --}}
-    <div id="map" id="geolocation-button"></div>
-    <div id="infowindow-content">
-        <span id="place-name" class="title"></span>
-        <br> Place ID
-        <span id="place-id"></span>
-    
-        <span id="zipCode">{{this.dataValues.zip_code}}</span>
-    
-        <br>
-        <span id="place-address"></span>
-    </div>
-    
-    {{!-- FRONT END JS CODE --}} {{/each}}
-    
-    
-    <script>
-        const $geolocateButton = document.getElementById('geolocation-button');
-        $geolocateButton.addEventListener('click', geolocate);
 
-        function geolocate() {
-            if (window.navigator && window.navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(onGeolocateSuccess, onGeolocateError);
-            }
-        }
+    #map {
+        height: 100%;
+    }
 
-        function initMap() {
-            //********************************  TRYING TO PARSE LAT AND LNG USING GOOGLE API ZIPCODE
-            var zipCode = document.getElementById('zipCode').textContent;
-            console.log(zipCode);
-            // Here we are building the URL we need to query the database
-            var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=AIzaSyBx4l2x84Yqb7HqvmtgywSwQJJwEPN_ehk";
-            // Here we run our AJAX call to the OpenWeatherMap API
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            })
-                // We store all of the retrieved data inside of an object called "response"
-                .done(function (response) {
-                    // Log the queryURL
-                    console.log(queryURL);
-                    console.log(response);
-                    // Log the resulting object
-                    var geometryLocation = response.results[0].geometry.location;
-                    var latLong = [];
-                    latLong.push(geometryLocation);
-                    console.log("//****************", latLong[0].lat)
-                    console.log("//****************", latLong[0].lng)
-                    console.log(typeof (latLong[0].lat));
-                    console.log(typeof (latLong[0].lng));
-                    // Transfer content to HTML
-                    //**************** TRYING TO INSERT LANG AND LONG TO LOCATE USER ZIPCODE ON THE MAP DYNAMICALLY WITH MARKER
-                    var lat_ = latLong[0].lat;
-                    var long_ = latLong[0].lng;
-                    var myLatLng = { lat: lat_, lng: long_ };
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 11,
-                        center: myLatLng
-                    });
-                    var marker = new google.maps.Marker({
-                        position: myLatLng,
-                        map: map,
-                        title: 'Hello World!'
-                    });
+    /* Optional: Makes the sample page fill the window. */
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .controls {
+        background-color: #fff;
+        border-radius: 2px;
+        border: 1px solid transparent;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        box-sizing: border-box;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        height: 29px;
+        margin-left: 17px;
+        margin-top: 10px;
+        outline: none;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+    }
+
+    .controls:focus {
+        border-color: #4d90fe;
+    }
+
+    .title {
+        font-weight: bold;
+    }
+
+    #infowindow-content {
+        display: none;
+    }
+
+    #map #infowindow-content {
+        display: inline;
+    }
+
+    #pac-input {
+        z-index: 1;
+        position: absolute;
+        left: 115px;
+        top: 96px;
+        background-color: #254f5d;
+        color: white;
+        width: 80%;
+    }
+</style>
+
+{{#each workers}} {{!-- THIS IS THE TEMPLATE WE DISPLAY ON THE MAPS PAGE --}}
+<div id="map" id="geolocation-button"></div>
+<div id="infowindow-content">
+    <span id="place-name" class="title"></span>
+    <br> Place ID
+    <span id="place-id"></span>
+
+    <span id="zipCode">{{this.dataValues.zip_code}}</span>
+
+    <br>
+    <span id="place-address"></span>
+</div>
+
+{{!-- FRONT END JS CODE --}} {{/each}}
+
+
+<script>
+    const $geolocateButton = document.getElementById('geolocation-button');
+    $geolocateButton.addEventListener('click', geolocate);
+
+    function geolocate() {
+        if (window.navigator && window.navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(onGeolocateSuccess, onGeolocateError);
+        }
+    }
+
+    function initMap() {
+        //********************************  TRYING TO PARSE LAT AND LNG USING GOOGLE API ZIPCODE
+        var zipCode = document.getElementById('zipCode').textContent;
+        console.log(zipCode);
+        // Here we are building the URL we need to query the database
+        var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=AIzaSyBx4l2x84Yqb7HqvmtgywSwQJJwEPN_ehk";
+        // Here we run our AJAX call to the OpenWeatherMap API
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+            // We store all of the retrieved data inside of an object called "response"
+            .done(function (response) {
+                // Log the queryURL
+                console.log(queryURL);
+                console.log(response);
+                // Log the resulting object
+                var geometryLocation = response.results[0].geometry.location;
+                var latLong = [];
+                latLong.push(geometryLocation);
+                console.log("//****************", latLong[0].lat)
+                console.log("//****************", latLong[0].lng)
+                console.log(typeof (latLong[0].lat));
+                console.log(typeof (latLong[0].lng));
+                // Transfer content to HTML
+                //**************** TRYING TO INSERT LANG AND LONG TO LOCATE USER ZIPCODE ON THE MAP DYNAMICALLY WITH MARKER
+                var lat_ = latLong[0].lat;
+                var long_ = latLong[0].lng;
+                var myLatLng = { lat: lat_, lng: long_ };
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 11,
+                    center: myLatLng
                 });
-        }
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'Hello World!'
+                });
+            });
+    }
 
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC45Qq8LHXy1dYPf6eIdlXTtmwnhRlrdPw&libraries=places&callback=initMap"></script>
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC45Qq8LHXy1dYPf6eIdlXTtmwnhRlrdPw&libraries=places&callback=initMap"></script>

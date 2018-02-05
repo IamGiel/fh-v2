@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "fh-v2",
+    "database": "for_hire",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

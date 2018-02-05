@@ -2,27 +2,25 @@
 <html lang="en">
 
 <head>
-    <title>For Hire V2</title>
+    <title>For Hire</title>
     <meta charset="utf-8">
     <!-- Link to the jQuery Library -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
+    
     <!-- Including Font Awesome Icons -->
     <script src="https://use.fontawesome.com/b38c8ed4c7.js"></script>
-
+    
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    
     <!-- Compiled and minified Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-
+    
     <!-- Compiled and minified Materialize JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
-   
-    {{!-- css link --}}
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script> {{!-- css link --}}
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
 </head>
@@ -30,18 +28,20 @@
 <body>
     <nav class="top-nav">
         <div class="nav-wrapper valign-wrapper light-blue accent-4">
-            <a href="/homepage" class="page-title">For Hire <span class="slogan">Get the help you need fast.</span> </a>
+            <a href="/homepage" class="page-title">For Hire
+                <span class="slogan">Get the help you need fast.</span>
+            </a>
             <ul id="nav-mobile" class="right">
                 <li id="yourLoggedin">Your Logged in!</li>
-                <li><a href="/login">Worker Log-in</a></li>
-                
+                <li>
+                    <a href="/login">Worker Log-in</a>
+                </li>
+
             </ul>
-      </div>
+        </div>
     </nav>
 
-    {{{ body }}} 
-
-    {{!-- footer --}}
+    {{{ body }}} {{!-- footer --}}
     <footer class="page-footer blue-grey lighten-3">
         <div class="container">
             <p class="white-text developed-by">Developed by Jacob Nifong, Claire Pate, Gel DeAsis, and Kane Price</p>
@@ -56,7 +56,7 @@
 
 
 
-    
+
     <script>
         $(".worker-zipcode").on("submit", function (event) {
             event.preventDefault(); //Ajax call to our routes the give the put requests
@@ -73,26 +73,26 @@
         });
 
     </script>
-<script type="text/javascript" src="/js/login.js"></script>
-<script type="text/javascript" src="/js/signupForm.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/js/materialize.min.js"></script>
-<link type="text/style" src="/assets/css/style.css">
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  $(function () {
-    var socket = io();
-    $('.chatbox-form').submit(function(){
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      return false;
-    });
-    socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));
-    window.scrollTo(0, document.body.scrollHeight);
-    });
-  });
-</script>
+    <script type="text/javascript" src="/js/login.js"></script>
+    <script type="text/javascript" src="/js/signupForm.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <link type="text/style" src="/assets/css/style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        $(function () {
+            var socket = io();
+            $('.chatbox-form').submit(function () {
+                socket.emit('chat message', $('#m').val());
+                $('#m').val('');
+                return false;
+            });
+            socket.on('chat message', function (msg) {
+                $('#messages').append($('<li>').text(msg));
+                window.scrollTo(0, document.body.scrollHeight);
+            });
+        });
+    </script>
 </body>
-</html>
 
+</html>

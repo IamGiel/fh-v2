@@ -1,4 +1,11 @@
+// *****************************************************************************
+// Server.js - This file is the initial starting point for the Node/Express server.
+//
+// ******************************************************************************
+// *** Dependencies
+// =============================================================
 var express = require("express");
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var bodyParser = require("body-parser");
@@ -7,14 +14,13 @@ var _ = require("underscore");
 
 // Sets up the Express App
 // =============================================================
-var app = express();
-
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8000;
 
 // Requiring our models for syncing
 var db = require("./models");
 
-// Sets up the Express app to  handle data parsing
+
+// Sets up the Express app to handle data parsing
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
@@ -47,6 +53,9 @@ var hbs = exphbs.create({
   }
 });
 
+
+
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -62,9 +71,8 @@ io.on('connection', function(socket){
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-
 db.sequelize.sync().then(function () {
-  app.listen(PORT, function () {
-    console.log("App now listening at localhost:" + PORT);
+  http.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
   });
 });
