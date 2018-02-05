@@ -1,6 +1,7 @@
 
 // Grabbing our models
 var db = require("../models");
+var passport = require("passport");
 
 // Routes
 // =============================================================
@@ -99,9 +100,19 @@ module.exports = function (app) {
     });
 
 
+// =============================================================
+ //Facebook log-in routes
+    
+    // route for facebook authentication and login
+    app.get('/auth/facebook',
+        passport.authenticate('facebook'));
 
-    // =============================================================
- 
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', { failureRedirect: '/login' }),
+        function (req, res) {
+            // Successful authentication, redirect home.
+            res.redirect('/homepage');
+        });
 //===================================================================
 
 }

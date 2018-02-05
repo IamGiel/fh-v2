@@ -82,16 +82,14 @@ span {
     margin: 25px;
 }   
 
-
-/* body {
-
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-
-
+/* login */
+.form-control {
+    text-align: center;
+    width: 50%;
+}
+input.form-control {
+    width: 50%;
+}
 /* customize this alert */
 span.badge.new:after {
     content: " NEW helper!";
@@ -145,3 +143,4 @@ nav ul a {
     position: relative;
     left: 200git s%;
 }
+

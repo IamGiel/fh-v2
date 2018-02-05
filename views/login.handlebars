@@ -1,4 +1,7 @@
+
+
 <div class="container">
+
     <div class="row">
         <div class="col m6 offset-m3">
             <div class="card-panel blue-grey lighten-3" id="login-card">
@@ -6,33 +9,45 @@
             </div>
         </div>
     </div>
-</div>
 
-<div class="container" id="formContainer">
-    {{!-- form action --}}
-    <form action="/api/login/" method="post">
+    <div class="col-sm-6 col-sm-offset-3">
 
-        {{!-- email --}}
-        <div class="row">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">email</i>
-                        <input name="email" type="email" class="validate inputEmail">
-                        <label for="email" data-error="wrong" data-success="right">Email</label>
+
+        <!-- show any messages that come back with authentication -->
+
+
+                <!-- LOGIN FORM -->
+                <form action="/login" method="post">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" name="email">
                     </div>
-                </div>
-        </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
 
-        {{!-- submit button --}}
-        <div class="row" id="formSubmit">
-            <button class="btn login-button light-blue accent-4" id="tempLoginLink">Submit
-                <i class="material-icons right">send</i>
-            </button>
-        </div>
-    </form>
+                    <button class="btn login-button light-blue accent-4" id="tempLoginLink">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+
+                </form>
+
+                <hr>
+
+                <p>Need an account?
+                    <a href="/signup">Signup</a>
+                </p>
+                <p>Or go
+                    <a href="/">home</a>.</p>
+
+    </div>
+
 </div>
+
+
     
-</div>
+
 
 <br>
 <br>
