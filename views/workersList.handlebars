@@ -49,9 +49,9 @@
                     </a>
                 </p>
                     {{!-- worker map --}}
-                <form action="http://localhost:8080/workersListMap/:zip_code" class="worker-zipcode">
+                <form action="/workersListMap/:zip_code" class="worker-zipcode">
                     <input type="hidden" class="zipcode-text" type="text" value={{this.dataValues.zip_code}}>
-                    <a href="http://localhost:8080/workersListMap/{{this.dataValues.zip_code}}" class='btn-floating right btn-large waves-effect waves-light blue'>
+                    <a href="/workersListMap/{{this.dataValues.zip_code}}" class='btn-floating right btn-large waves-effect waves-light blue'>
                         <i class="material-icons">map</i>
                     </a>
                 </form>
