@@ -16,6 +16,13 @@
 *.psd
 *.ai
 
+*/.jpg
+*/.jpeg
+*/.png
+*/.gif
+*/.psd
+*/.ai
+
 #################
 ## Windows detritus
 #################
