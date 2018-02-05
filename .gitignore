@@ -1,2 +1,42 @@
+#################
+## Sublime Text
+#################
+
+*.sublime-project
+*.sublime-workspace
+
+#################
+## Images
+#################
+
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.psd
+*.ai
+
+#################
+## Windows detritus
+#################
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Mac crap
 .DS_Store
-/node_modules
+
+#################
+## Directories
+#################
+
+dev/
+cms/core/config/
+node_modules/
