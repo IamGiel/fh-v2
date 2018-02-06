@@ -5,9 +5,18 @@ var passport = require("passport");
 // Routes
 // =============================================================
 module.exports = function (app, passport) {
+
+    app.get("/login", function (req, res) {
+        res.render("login");
+    });
+
+    // GET root route (thank for this Kane)
+    app.get("/*", function (req, res) {
+        res.render("homePage");
+    });
     // route for home page
     app.get('/', function (req, res) {
-        res.render('homepage'); // load the index.ejs file
+        res.render('homePage'); // load the index.ejs file
     });
 
     // route for showing the profile page
@@ -99,18 +108,13 @@ module.exports = function (app, passport) {
         res.render("signupForm");
     });
 
-    app.get("/login", function (req, res) {
-        res.render("login");
-    });
+   
 
     app.get("/servicesList", function (req, res) {
         res.render("servicesList");
     });
 
-    // GET root route (thank for this Kane)
-    app.get("/*", function (req, res) {
-        res.render("homePage");
-    });
+
 
     // NEW USER info after sign-up, ADD to DATABASE (THIS CONNECTS WITH JQUERY WITH SAME post METHOD and ROUTE)
     app.post("/api/posts", function (req, res) {
