@@ -1,59 +1,59 @@
+<!doctype html>
+<html>
 
-{{!-- log-in page --}}
-<div class="container">
+<head>
+    <title>Node Authentication</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body {
+            padding-top: 80px;
+        }
+    </style>
+</head>
 
-    <div class="row">
-        <div class="col m6 offset-m3">
-            <div class="card-panel blue-grey lighten-3" id="login-card">
-                <span class="white-text">Please enter your log-in information below.</span>
-            </div>
+<body>
+    <div class="container">
+        <div class="col-sm-6 col-sm-offset-3">
+
+            <h1>
+                <span class="fa fa-sign-in"></span> Login</h1>
+
+           
+                <div class="alert alert-danger">
+                   
+                </div>
+               
+
+                    <!-- LOGIN FORM -->
+                    <form action="/login" method="post">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+
+                        <button type="submit" class="btn btn-warning btn-lg">Login</button>
+                    </form>
+
+                    <hr>
+
+                    <p>Need an account?
+                        <a href="/signup">Signup</a>
+                    </p>
+                    <p>Or go
+                        <a href="/">home</a>.</p>
+
+                    <div class="text-center">
+                        <p>A demo by
+                            <a href="https://github.com/IamGiel/fh-v2">fh-v2</a>.</p>
+                    </div>
+
         </div>
     </div>
+</body>
 
-    <div class="col-sm-6 col-sm-offset-3">
-
-
-        <!-- show any messages that come back with authentication -->
-
-
-                <!-- LOGIN FORM -->
-                <form action="/auth/google" method="post">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" class="form-control" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" name="password">
-                    </div>
-
-                    <button class="btn login-button light-blue accent-4" id="tempLoginLink">Submit
-                        <i class="material-icons right">send</i>
-                    </button>
-
-                </form>
-
-                <hr>
-
-                <p>Need an account?
-                    <a href="/signup">Signup</a>
-                </p>
-                <p>Or go
-                    <a href="/">home</a>.</p>
-
-    </div>
-
-</div>
-
-
-    
-
-
-<br>
-<br>
-
-
-<!-- js files are needed to ensure that the materialize formats are consistent  -->
-<!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+</html>

@@ -9,11 +9,6 @@ module.exports = function (app, passport) {
     app.get("/login", function (req, res) {
         res.render("login");
     });
-
-    // GET root route (thank for this Kane)
-    app.get("/*", function (req, res) {
-        res.render("homePage");
-    });
     // route for home page
     app.get('/', function (req, res) {
         res.render('homePage'); // load the index.ejs file
