@@ -11,6 +11,18 @@ var io = require('socket.io')(http);
 var bodyParser = require("body-parser");
 const path = require('path');
 var _ = require("underscore");
+var session = require('express-session');
+var passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
+require("dotenv/config");
+require("./server");
+
+//Environment variables
+require('dotenv').config();
+var client_id = process.env.GOOGLE_CLIENT_ID;
+var client_secret = process.env.GOOGLE_CLIENT_SECRET;
+
+
 
 // Sets up the Express App
 // =============================================================
@@ -53,15 +65,43 @@ var hbs = exphbs.create({
   }
 });
 
-
+// required for passport
+app.use(session({
+  secret: 'ilovescotchscotchyscotchscotch', // session secret
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+//Google authentication configuration
+passport.use(new GoogleStrategy({
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: process.env.GOOGLE_CALLBACK_URL
+},
+  function (accessToken, refreshToken, profile, done) {
+    db.users.findOne({ where: { google_id: profile.id } }).then(function (user) {
+      if (!user) {
+        var google_id = profile.id;
+        var email = profile.emails[0].value;
+        db.users.create({ user_email: email, google_id: google_id }).then(function (user) {
+          return done(null, user);
+        })
+      } else {
+        return done(null, user);
+      }
+    })
+  }
+));
+
 // Routes
 // =============================================================
-require('./routes/routes.js')(app);
+require('./routes/routes.js')(app, passport);
 
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){

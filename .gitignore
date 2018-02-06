@@ -2,6 +2,11 @@
 ## Sublime Text
 #################
 
+
+# keys
+config/auth.js
+
+
 *.sublime-project
 *.sublime-workspace
 
