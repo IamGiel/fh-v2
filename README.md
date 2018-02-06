@@ -47,3 +47,4 @@ Giel DeAsis (lfagel84@gmail.com)
 Claire Pate (clairepate11@yahoo.com)
 Kane Price (price.kane@gmail.com)
 License
+MIT © For-Hire
