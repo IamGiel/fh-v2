@@ -1,10 +1,10 @@
-For-Hire
+#For-Hire
 For-Hire is a technology platform. Our app connects freelance workers and clients in need of specific service. In cities where For-Hire operates, use your app to request a service. When a nearby freelance workers accepts your request, your app displays an estimated time of arrival for the freelance workers heading to your location.
 
-Motivation
+##Motivation
 We all need a little help from time to time. But where do you find qualified help, quickly and effectively? We designed an app for just that. If you are having company over Saturday night and need the house cleaned, food cooked, or the toilet fixed you can find all the right people for the job with this app and schedule their time around YOUR time frame.
 
-Build status
+##Build status
 The app is up and works in all zip-codes. With the launch and getting workers to sign up, the app will grow quickly in your area. As we grow we want to expand the possible services listed as we would like to provide more options for the clients, and more possabilities for the workers. We have achieved our MVP model and have many intergration ideas in the works to improve easability and customization.
 
 Some of these ideas include
