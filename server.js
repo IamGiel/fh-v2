@@ -14,8 +14,7 @@ var _ = require("underscore");
 var session = require('express-session');
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
-require("dotenv/config");
-require("./server");
+
 
 //Environment variables
 require('dotenv').config();
@@ -66,13 +65,8 @@ var hbs = exphbs.create({
 });
 
 // required for passport
-app.use(session({
-  secret: 'ilovescotchscotchyscotchscotch', // session secret
-  resave: true,
-  saveUninitialized: true
-}));
+
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
 
 
 app.engine('handlebars', hbs.engine);

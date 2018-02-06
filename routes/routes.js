@@ -1,4 +1,3 @@
-
 // Grabbing our models
 var db = require("../models");
 var passport = require("passport");
@@ -57,12 +56,12 @@ module.exports = function (app, passport) {
 
     // GET all types of workers
     app.get("/workersList/:service", function (req, res) {
-        db.Worker.findAll({where: {Service: req.params.service}})
-        .then(function (data) {
-            var hbsObject = {workers: data};
-            //console.log(hbsObject.workers[0].dataValues);
-            res.render("workersList", hbsObject)
-        });
+        db.Worker.findAll({ where: { Service: req.params.service } })
+            .then(function (data) {
+                var hbsObject = { workers: data };
+                //console.log(hbsObject.workers[0].dataValues);
+                res.render("workersList", hbsObject)
+            });
     });
 
     // GET all types of workers on a MAP with markers
@@ -71,17 +70,17 @@ module.exports = function (app, passport) {
         db.Worker.findAll({ where: { zip_code: req.params.zip_code } })
             .then(function (data) {
                 var hbsObject = { workers: data };
-                console.log("HBSOBJECT HERE >>>>>>",hbsObject);
+                console.log("HBSOBJECT HERE >>>>>>", hbsObject);
                 //console.log(hbsObject.workers[0].dataValues);
                 res.render("workersListMap", hbsObject)
             });
     });
 
-   
+
 
     app.get("/chat/:id", function (req, res) {
         res.render("chatBoxHirer");
-});
+    });
 
     // GET route - homePage
     app.get("/homePage", function (req, res) {
@@ -97,14 +96,14 @@ module.exports = function (app, passport) {
 
     //GET sign-up form
     app.get("/signupForm", function (req, res) {
-            res.render("signupForm");
+        res.render("signupForm");
     });
 
     app.get("/login", function (req, res) {
         res.render("login");
-});
+    });
 
-    app.get("/servicesList", function(req, res) {
+    app.get("/servicesList", function (req, res) {
         res.render("servicesList");
     });
 
@@ -132,9 +131,9 @@ module.exports = function (app, passport) {
     });
 
 
-// =============================================================
+    // =============================================================
 
-        
-//===================================================================
+
+    //===================================================================
 
 }
