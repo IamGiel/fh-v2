@@ -25,7 +25,7 @@ Currently in development stages.  Future Developments:
 
 Image:
 
-![](https://pandao.github.io/editor.md/examples/images/4.jpg)
+![](https://raw.githubusercontent.com/IamGiel/fh-v2/master/public/assets/images/webshot.png)
 
 > Follow your heart.
 
