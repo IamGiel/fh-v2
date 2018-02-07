@@ -45,18 +45,27 @@ GOOGLE API | Geolocation
 
 
 ###How to use?
+
+
 Simply go to the site and choose if you want to "find help" or if you want to "sign up to help". After that you will be taken to your respected page and be allowed to select what type of service you are looking for and then select the person you want, followed by a "succesful match" link. If you choose to sign up for work you will be asked some standard questions for name, area, type of service and then availability. After completion you will be put in the database and will be viewable for all people that meet your search type.
 
 ####Contribute
+
+
 We would love feedback and any ideas you may want to add feel free. Here is our Github page. Create an issue and submit it. (https://github.com/ForHireProject/For-Hire)
 
 `Credits`
+
+
 This app was built by the following, in no particular order.
+
 
 `Jacob Nifong (jacob.m.nifong@gmail.com)`
 `Giel DeAsis (lfagel84@gmail.com)`
 `Claire Pate (clairepate11@yahoo.com)`
 `Kane Price (price.kane@gmail.com)`
+
+
 
 License
 MIT © For-Hire
