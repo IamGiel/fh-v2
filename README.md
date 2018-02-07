@@ -1,6 +1,6 @@
-###FOR-HIRE
+<h1>FOR-HIRE</h1>
 
-For-Hire is a technology platform. Our app connects freelance workers and clients in need of specific service. In cities where For-Hire operates, use your app to request a service. When a nearby freelance workers accepts your request, your app displays an estimated time of arrival for the freelance workers heading to your location.
+<b>For-Hire</b> is a technology platform. Our app connects freelance workers and clients in need of specific service. In cities where For-Hire operates, use your app to request a service. When a nearby freelance workers accepts your request, your app displays an estimated time of arrival for the freelance workers heading to your location.
 
 Currently in development stages.  Future Developments:
 
@@ -44,12 +44,12 @@ Socket.io  | Chat Package
 GOOGLE API | Geolocation
 
 
-###How to use?
+<h2>How to use?</h2>
 
 
 Simply go to the site and choose if you want to "find help" or if you want to "sign up to help". After that you will be taken to your respected page and be allowed to select what type of service you are looking for and then select the person you want, followed by a "succesful match" link. If you choose to sign up for work you will be asked some standard questions for name, area, type of service and then availability. After completion you will be put in the database and will be viewable for all people that meet your search type.
 
-####Contribute
+<h2>Contribute</h2>
 
 
 We would love feedback and any ideas you may want to add feel free. Here is our Github page. Create an issue and submit it. (https://github.com/ForHireProject/For-Hire)
@@ -70,4 +70,4 @@ This app was built by the following, in no particular order.
 License
 MIT © For-Hire
 
-###End
+<h4>End</h4>
