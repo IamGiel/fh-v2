@@ -44,29 +44,6 @@ Socket.io  | Chat Package
 GOOGLE API | Geolocation
 
 
-            
-                
-###FlowChart
-
-```flow
-st=>start: Log in
-op=>operation: Login operation
-cond=>condition: Successful Yes or No?
-e=>end: To admin
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
-
-###Sequence Diagram
-                    
-```seq
-Andrew->China: Says Hello 
-Note right of China: China thinks\nabout it 
-China-->Andrew: How are you? 
-Andrew->>China: I am good thanks!
-```
 ###How to use?
 Simply go to the site and choose if you want to "find help" or if you want to "sign up to help". After that you will be taken to your respected page and be allowed to select what type of service you are looking for and then select the person you want, followed by a "succesful match" link. If you choose to sign up for work you will be asked some standard questions for name, area, type of service and then availability. After completion you will be put in the database and will be viewable for all people that meet your search type.
 
