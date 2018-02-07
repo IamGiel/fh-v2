@@ -21,7 +21,7 @@ Currently in development stages.  Future Developments:
 
 
 
-###SNAPSHOTS
+<h3>SNAPSHOTS</h3>
 
 Image:
 
