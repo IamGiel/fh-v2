@@ -5,7 +5,7 @@ $(document).ready(function () {
     event.preventDefault();
     
     
-    console.log("Adding newWorker...");
+    console.log("Adding newWorker..."); 
 
     // make a newWorker obj NOTE: THIS IS MYSQL MODEL EQUIVALENT, SO MAKE SURE EACH PROPERTY MATCHES THE MODEL
     var newWorker = {

@@ -146,4 +146,19 @@ nav ul a {
     left: 200git s%;
 }
 
+.blue-grey.lighten-3 {
+    background-color: #b0bec5 !important;
+}
+
+
+.card-panel {
+    transition: box-shadow .25s;
+    padding: 24px;
+    margin: 3.5rem 0 1rem 0;
+    border-radius: 2px;
+    background-color: #fff;
+    position: relative;
+    left: -27%;
+}
+
 

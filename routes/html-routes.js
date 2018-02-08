@@ -7,17 +7,21 @@ var isAuthenticated = require("../config/isAuthenticated");
 
 module.exports = function (app) {
 
-    // route for home page
-    app.get('/', function (req, res) {
+    // // route for home page
+    app.get('/', function (req, res, next) {
+        if (res._eventsCount === 1){
+            console.log("req>>>>>>>>>>>>>>>>>>", req);
+        }
         res.render('homePage'); // load the index.ejs file
     });
 
-
-    app.get("/", function (req, res) {
-        // If the user already has an account send them to the workersList page
+    // route for home page with a conditional
+    app.get("/workersListMap", function (req, res) {
+        // If the user already has an account allow map to render
         if (req.user) {
-            res.redirect("/workersList");
+            res.redirect("workersListMap");
         }
+        //if not, render sign-up form
         res.render("signupForm");
     });
 
@@ -37,7 +41,7 @@ module.exports = function (app) {
 
     // route for showing the profile page
     app.get('/profile', isLoggedIn, function (req, res) {
-        console.log("firing here from profile page >>>>>>>>>>>");
+        console.log("firing here from profile page >>>>>>>>>>>", req.user);
         res.render('chatterBoxHirer', {
             user: req.user // get the user out of session and pass to template
         });
