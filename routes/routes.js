@@ -95,20 +95,20 @@ module.exports = function (app, passport) {
 
     // GET all types of workers on a MAP with markers
     app.get("/workersListMap/:zip_code", function (req, res) {
-        console.log("HBSOBJECT HERE >>>>>>", req.params);
         db.Worker.findAll({ where: { zip_code: req.params.zip_code } })
-            .then(function (data) {
-                var hbsObject = { workers: data };
-                console.log("HBSOBJECT HERE >>>>>>", hbsObject);
-                //console.log(hbsObject.workers[0].dataValues);
-                res.render("workersListMap", hbsObject)
-            });
-    });
 
-
-
-    app.get("/chat/:id", function (req, res) {
-        res.render("chatBoxHirer");
+            if (req.user) {
+                res.redirect("/workersListMap/:zip_coder")
+                .then(function (data) {
+                    var hbsObject = { workers: data };
+                    console.log("HBSOBJECT HERE >>>>>>", hbsObject);
+                    //console.log(hbsObject.workers[0].dataValues);
+                    res.render("workersListMap", hbsObject)
+                });
+            }
+            else{ 
+                res.render("login");
+            }       
     });
 
     // GET route - homePage

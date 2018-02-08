@@ -118,8 +118,11 @@ span.badge.new {
 }
 
 /* slogan */
-.slogan{
-    font-size: 25px;
+.slogan {
+    font-size: 20px;
+    position: relative;
+    bottom: 3px;
+    left: -21px;
 }
 
 /* nav bar */
@@ -158,7 +161,7 @@ nav ul a {
     border-radius: 2px;
     background-color: #fff;
     position: relative;
-    left: -27%;
+    left: -1%;
 }
 
 

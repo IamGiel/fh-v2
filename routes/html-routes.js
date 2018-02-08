@@ -9,10 +9,16 @@ module.exports = function (app) {
 
     // // route for home page
     app.get('/', function (req, res, next) {
-        if (res._eventsCount === 1){
-            console.log("req>>>>>>>>>>>>>>>>>>", req);
-        }
         res.render('homePage'); // load the index.ejs file
+    });
+
+    app.get("/chat/:id", function (req, res) {
+        if (req.user){
+            res.render("chatBoxHirer");
+        }
+        else {
+            res.render("login");
+        }
     });
 
     // route for home page with a conditional
