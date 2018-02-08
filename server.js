@@ -73,9 +73,9 @@ app.set('view engine', 'handlebars');
 
 //Google authentication configuration
 passport.use(new GoogleStrategy({
-  clientID: "1034421344860-ksgl4clmlrtsm20bej5kvev2v1pnuk7e.apps.googleusercontent.com",
-  clientSecret: "YUGny2EgMQtDg6Jd7u8XLljA",
-  callbackURL: "http://localhost:8080/auth/google/callback"
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: process.env.GOOGLE_CALLBACK_URL 
 },
   function (accessToken, refreshToken, profile, done) {
     db.users.findOne({ where: { google_id: profile.id } }).then(function (user) {
@@ -97,6 +97,7 @@ passport.use(new GoogleStrategy({
 // Routes
 // =============================================================
 require('./routes/routes.js')(app, passport);
+require('./routes/html-routes.js')(app);
 
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){

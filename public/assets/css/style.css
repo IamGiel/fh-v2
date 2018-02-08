@@ -133,6 +133,8 @@ span.badge.new {
     font-size: 27px;
     color: #6c67d5;
 }
+
+
 nav ul a {
     transition: background-color .3s;
     font-size: 1rem;
@@ -143,4 +145,5 @@ nav ul a {
     position: relative;
     left: 200git s%;
 }
+
 
