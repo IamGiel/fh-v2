@@ -10,9 +10,9 @@ module.exports = function (app) {
 
     //homepage
     
-    app.get('/*', function (req, res) {
-        res.render('homepage');
-    });
+    // app.get('/*', function (req, res) {
+    //     res.render('homepage');
+    // });
     app.get('/homepage', function (req, res) {
         res.render('homepage');
     });
