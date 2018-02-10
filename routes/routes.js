@@ -65,17 +65,17 @@ module.exports = function (app, passport) {
             }       
     });
 
-    // GET route - homePage
-    app.get("/homePage", function (req, res) {
-        console.log("homePage route is working from rout.js >>>>>>>>>");
-        db.Worker.findAll({}).then(function (data) {
-            var hbsObject = {
-                worker: data
-            };
-            console.log("THIS is workers DATA heyyooo", hbsObject);
-            res.render("homePage")
-        })
-    });
+    // // GET route - homePage
+    // app.get("/homePage", function (req, res) {
+    //     console.log("homePage route is working from rout.js >>>>>>>>>");
+    //     db.Worker.findAll({}).then(function (data) {
+    //         var hbsObject = {
+    //             worker: data
+    //         };
+    //         console.log("THIS is workers DATA heyyooo", hbsObject);
+    //         res.render("homePage")
+    //     })
+    // });
 
     //GET sign-up form
     app.get("/signupForm", function (req, res) {
