@@ -10,12 +10,6 @@ module.exports = function (app) {
     app.get('/', function (req, res) {
         res.render('homePage', {});
     });
-    //homepage
-    
-    app.get('/*', function (req, res) {
-        res.render('homepage');
-    });
-
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
     // app.get("/api/login", isAuthenticated, function (req, res) {
@@ -97,6 +91,10 @@ module.exports = function (app) {
         // if they aren't redirect them to the home page
         res.redirect('/');
     }
+    
+    app.get('/*', function (req, res) {
+        res.render('homepage');
+    });
     
 
 };
