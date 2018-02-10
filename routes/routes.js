@@ -6,10 +6,10 @@ var passport = require("../config/passport");
 // =============================================================
 module.exports = function (app, passport) {
     //at login route - authenticate
-    app.get('/login', passport.authenticate('local', {
-        successRedirect: 'homePage',
-        failureRedirect: '/login'
-    }));
+    // app.get('/login', passport.authenticate('local', {
+    //     successRedirect: 'homePage',
+    //     failureRedirect: '/login'
+    // }));
 
     app.post("/api/signup", function (req, res) {
         console.log(req.body);
