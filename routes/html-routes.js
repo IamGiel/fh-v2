@@ -10,11 +10,11 @@ module.exports = function (app) {
 
     //homepage
     
-    // app.get('/*', function (req, res) {
-    //     res.render('homepage');
-    // });
-    app.get('/homepage', function (req, res) {
+    app.get('/*', function (req, res) {
         res.render('homepage');
+    });
+    app.get('/homePage', function (req, res) {
+        res.render('homePage');
     });
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
@@ -97,13 +97,6 @@ module.exports = function (app) {
         // if they aren't redirect them to the home page
         res.redirect('/');
     }
-
-    app.get('/example/b', function (req, res, next) {
-        console.log('the response will be sent by the next function ...')
-        // next()
-    }, function (req, res) {
-        res.send('Hello from B!')
-    })
     
 
 };
