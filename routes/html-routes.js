@@ -7,20 +7,20 @@ var isAuthenticated = require("../config/isAuthenticated");
 
 module.exports = function (app) {
 
-
+    app.get('/', function (req, res) {
+        res.render('homePage', {});
+    });
     //homepage
     
     app.get('/*', function (req, res) {
         res.render('homepage');
     });
-    app.get('/homePage', function (req, res) {
-        res.render('homePage');
-    });
+
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
-    app.get("/api/login", isAuthenticated, function (req, res) {
-        res.render('homePage');
-    });
+    // app.get("/api/login", isAuthenticated, function (req, res) {
+    //     res.render('homePage');
+    // });
 
     // // route for home page
     // app.get('/', function (req, res) {
