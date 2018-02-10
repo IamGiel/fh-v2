@@ -7,42 +7,72 @@ var isAuthenticated = require("../config/isAuthenticated");
 
 module.exports = function (app) {
 
-    // // route for home page
-    app.get('/', function (req, res, next) {
-        res.render('homePage'); // load the index.ejs file
+
+    //homepage
+    // route for login
+    app.get('/*', function (req, res) {
+        res.render('homepage');
+    });
+    // Here we've add our isAuthenticated middleware to this route.
+    // If a user who is not logged in tries to access this route they will be redirected to the signup page
+    app.get("/api/login", isAuthenticated, function (req, res) {
+        res.render('homePage');
     });
 
-    app.get("/chat/:id", function (req, res) {
-        if (req.user){
-            res.render("chatBoxHirer");
+    // // route for home page
+    // app.get('/', function (req, res) {
+    //     res.render('homePage'); 
+    // });
+
+    // route for login
+    app.get('/login', function (req, res) {
+        res.render('login'); 
+    });
+
+    
+    //code block: if user clicked on chat feature and is not logged in, render login page
+    app.get("/mailto:email", function (req, res) {
+        // If the user already has an account allow chat page to render
+        if (req.user) {
+            res.render("mailto:");
         }
+        //if not, render sign-up form
         else {
             res.render("login");
         }
     });
 
-    // route for home page with a conditional
+    //code block: if user clicked on chat feature and is not logged in, render login page
+    app.get("/chat/:id", function (req, res) {
+         // If the user already has an account allow chat page to render
+        if (req.user){
+            res.render("chatBoxHirer");
+        }
+        //if not, render sign-up form
+        else {
+            res.render("login");
+        }
+    });
+
+    // code block: if user clicked on map feature and is not logged in, render login page
     app.get("/workersListMap", function (req, res) {
-        // If the user already has an account allow map to render
+        // If the user already has an account allow map page to render
         if (req.user) {
             res.redirect("workersListMap");
         }
-        //if not, render sign-up form
-        res.render("signupForm");
-    });
-
-    app.get("/login", function (req, res) {
-        // If the user already has an account send them to the home page
-        if (req.user) {
-            res.redirect("/chatBoxHirer");
+        else {
+            //if not, render sign-up form
+            res.render("signupForm");
+            //if successful login redirect to the map
+            // >> how to code that?
         }
-        res.render("login");
+
     });
 
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
     app.get("/signupForm", isAuthenticated, function (req, res) {
-        res.render("signupForm");
+        res.render("homePage");
     });
 
     // route for showing the profile page
@@ -52,6 +82,7 @@ module.exports = function (app) {
             user: req.user // get the user out of session and pass to template
         });
     });
+    
 
     // route middleware to make sure a user is logged in
     function isLoggedIn(req, res, next) {

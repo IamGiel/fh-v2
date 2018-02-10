@@ -12,37 +12,29 @@
 
 <div class="container">
     <div class="col-sm-6 col-sm-offset-3">
-
         <h1>
             <span class="fa fa-sign-in"></span> Login</h1>
-
-
+        
         <!-- LOGIN FORM -->
-        <form action="/login" method="post">
-
-
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-1">
-
-                        <form class="login">
+                        <form action="/api/login">
                             <div class="form-group">
                                 <input type="email" class="form-control" id="email-input" placeholder="Email">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="password-input" placeholder="Password">
                             </div>
-                            <button type="submit" class="btn btn-default">Login</button>
+                            <button id="loggingIn" action="/" type="submit" class="btn btn-default">Login</button>
                         </form>
-                        <br />
-                        <p class="orSignUpHere">Or sign up
+                            <br />
+                            <p class="orSignUpHere">Or sign up
                             <a href="/signupForm">here</a>
                         </p>
                     </div>
                 </div>
             </div>
-
-        </form>
 
         <hr>
 

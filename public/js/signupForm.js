@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // when user clicks add-btn
 
-  $(".modal-trigger").on("click", function (event) {
+  $("#formSubmit").on("click", function (event) {
     event.preventDefault();
     
     
@@ -24,7 +24,6 @@ $(document).ready(function () {
       phone: $(".inputPhone").val().trim(),
       // service input
       service: $("#inputService :selected").text().trim()
-
     };
 
     console.log(newWorker);
