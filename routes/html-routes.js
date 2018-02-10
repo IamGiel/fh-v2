@@ -9,8 +9,11 @@ module.exports = function (app) {
 
 
     //homepage
-    // route for login
+    
     app.get('/*', function (req, res) {
+        res.render('homepage');
+    });
+    app.get('/homepage', function (req, res) {
         res.render('homepage');
     });
     // Here we've add our isAuthenticated middleware to this route.
