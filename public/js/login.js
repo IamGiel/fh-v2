@@ -2,17 +2,13 @@ $(document).ready(function () {
 
     
     // Getting references to our form and inputs
-    var loginForm = $("#loggingIn");
-    var emailInput = $("input#email-input");
-    var passwordInput = $("input#password-input");
-
-    emailInput.val("email");
-    passwordInput.val("password");
-    console.log("firing here")
+    
+    var emailInput = $("#email-input");
+    var passwordInput = $("#password-input");
     
 
     // When the form is submitted, we validate there's an email and password entered
-    loginForm.on("submit", function (event) {
+    $("#loggingIn").on("click", function (event) {
         event.preventDefault();
         console.log("on click - >>>>>>>>>");
         var userData = {
@@ -34,13 +30,12 @@ $(document).ready(function () {
     function loginUser(email, password) {
 
         
-        $.post("/api/login", {
+        $.post("/api/authenticate", {
             email: email,
             password: password
         }).then(function (data) {
             console.log("logged in");
-            res.render(true);
-            // If there's an error, log the error
+            console.log(data);
         }).catch(function (err) {
             console.log(err);
         });
