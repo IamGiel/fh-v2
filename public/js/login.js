@@ -37,7 +37,7 @@ $(document).ready(function () {
             console.log("logged in");
             console.log(data);
         }).catch(function (err) {
-            console.log(err);
+            console.log(err.statusText);
         });
     }
 

@@ -8,28 +8,40 @@ var db = require("../models");
 passport.use(new LocalStrategy(
     {
         usernameField: "email",
-        passwordField: "password"
+        passwordField: "password",
+        passReqToCallback: true // allows us to pass back the entire request to the callback
     }, 
-    function (email, password, done) {
-        console.log("authenticating user here");
+    function (req, email, password, done) {
+        console.log("authenticating user email here...");
         // When a user tries to sign in this code runs
         db.Worker.findOne({
-           'local.email': email
+            where: {
+                email: email,
+            }, function (err, worker) {
+                if (err) return done (err);
+                if(!worker) {
+                    return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
+                }
+                if(!user.validPassword(password)){
+                    return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
+                }
+            }
         }).then(function (dbWorker) {
             // If there's no user with the given email
-            if (!dbWorker) {
-                return done(null, false, {
-                    message: "Incorrect email."
-                });
+            if(!dbWorker) {
+                console.log("failure to login...");
+            } else {
+                console.log("TESTING name >>>>>>\n", dbWorker.name);
+                console.log("TESTING email >>>>>>\n", dbWorker.email);
+                console.log("successful login...");
+                console.log("email accepted");
             }
-            // If there is a user with the given email, but the password the user gives us is incorrect
-            else if (!dbWorker.validPassword(password)) {
-                return done(null, false, {
-                    message: "Incorrect password."
-                });
-            }
-            // If none of the above, return the user
-            return done(null, dbWorker);
+            // if (!dbWorker) {
+            //     console.log("ooops check email...");
+            // } else {
+            
+            // return reset(null, dbWorker);
+            // }
         });
     }
 ));

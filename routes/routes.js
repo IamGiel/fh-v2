@@ -11,11 +11,12 @@ module.exports = function (app) {
     //     failureRedirect: '/login'
     // }));
 
-    app.post("/api/authenticate", passport.authenticate('local'), function (req, res) {
-        console.log("RES >>>>>>>>>>", res);
+    app.post('/api/authenticate', passport.authenticate('local', {
+        successRedirect: '/', // redirect to the secure profile section
+        failureRedirect: '/login', // redirect back to the signup page if there is an error
+        failureFlash: true // allow flash messages
+    }));
 
-        res.json(req.user);
-    });
     // app.post("/api/signup", function (req, res) {
     //     console.log(req.body);
     //     db.User.create({
