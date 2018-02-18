@@ -112,3 +112,10 @@ db.sequelize.sync().then(function () {
     console.log("App listening on PORT " + PORT);
   });
 });
+
+
+
+//=======
+// Imp NTH:
+// trying to Remove DS Store. Use Code below:
+// find. - name.DS_Store - print0 | xargs - 0 git rm - f--ignore - unmatch
