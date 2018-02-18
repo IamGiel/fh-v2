@@ -60,10 +60,10 @@ We would love feedback and any ideas you may want to add feel free. Here is our 
 This app was built by the following, in no particular order.
 
 
-`Jacob Nifong (jacob.m.nifong@gmail.com)`
+`Jacob Nifong ()`
 `Giel DeAsis ()`
-`Claire Pate (clairepate11@yahoo.com)`
-`Kane Price (price.kane@gmail.com)`
+`Claire Pate ()`
+`Kane Price ()`
 
 
 
