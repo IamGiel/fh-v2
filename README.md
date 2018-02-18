@@ -2,6 +2,10 @@
 
 <b>For-Hire</b> is a technology platform. Our app connects freelance workers and clients in need of specific service. In cities where For-Hire operates, use your app to request a service. When a nearby freelance workers accepts your request, your app displays an estimated time of arrival for the freelance workers heading to your location.
 
+Web: [https://fh-v2.herokuapp.com/
+]()
+
+
 Currently in development stages.  Future Developments:
 
 * Facebook/linkdin login capabilities 
