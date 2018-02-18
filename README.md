@@ -27,7 +27,7 @@ Image:
 
 ![](https://raw.githubusercontent.com/IamGiel/fh-v2/master/public/assets/images/webshot.png)
 
-> Follow your heart.
+
 
 
                 
@@ -52,7 +52,7 @@ Simply go to the site and choose if you want to "find help" or if you want to "s
 <h2>Contribute</h2>
 
 
-We would love feedback and any ideas you may want to add feel free. Here is our Github page. Create an issue and submit it. (https://github.com/ForHireProject/For-Hire)
+We would love feedback and any ideas you may want to add feel free. Here is our Github page. Create an issue and submit it. ()
 
 `Credits`
 
@@ -61,7 +61,7 @@ This app was built by the following, in no particular order.
 
 
 `Jacob Nifong (jacob.m.nifong@gmail.com)`
-`Giel DeAsis (lfagel84@gmail.com)`
+`Giel DeAsis ()`
 `Claire Pate (clairepate11@yahoo.com)`
 `Kane Price (price.kane@gmail.com)`
 
