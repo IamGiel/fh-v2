@@ -1,5 +1,5 @@
-var validator = require('validator');
-var bcrypt = require("bcrypt-nodejs");
+
+
 
 
 module.exports = function (sequelize, DataTypes) {
@@ -13,9 +13,9 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             // validate: {
             //     isAlpha: { msg: "--<@@@@@@ NO NUMBERS @@@@@@>--"}
-            //     } 
+            //     }
         },
-        
+
         zip_code: {
             type: DataTypes.STRING,
             allowNull: false
@@ -53,14 +53,7 @@ module.exports = function (sequelize, DataTypes) {
             freezeTableName: true
         },
     );
-        Worker.prototype.validPassword = function (password) {
-            return bcrypt.compareSync(password, this.password);
-        };
-        // Hooks are automatic methods that run during various phases of the User Model lifecycle
-        // In this case, before a User is created, we will automatically hash their password
-        Worker.hook("beforeCreate", function (worker) {
-            worker.password = bcrypt.hashSync(worker.password, bcrypt.genSaltSync(10), null);
-        });
+
     return Worker;
-    
+
 }

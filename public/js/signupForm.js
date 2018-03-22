@@ -3,6 +3,9 @@ $(document).ready(function () {
 
   $("#formSubmit").on("click", function (event) {
     event.preventDefault();
+    if (!newWorker.url_link) {
+      alert("please check all the input fields");
+    }
     
     
     console.log("Adding newWorker..."); 
@@ -33,10 +36,8 @@ $(document).ready(function () {
       .then(function (data) {
         // log the data we found
         console.log(data);
-        // tell the user we're adding a newWorker with an alert window
-        console.log("Adding newWorker...");
       });
-      //match this target id/classes to html or handlebars
+      // clear input fields
       $(".url_link").val(""),
       $(".inputName").val(""),
       $(".inputZipcode").val(""),

@@ -1,7 +1,7 @@
 -- Drops the todolist if it exists currently --
-DROP DATABASE IF EXISTS for_hire;
+DROP DATABASE IF EXISTS fhv2;
 -- Creates the "todolist" database --
-CREATE DATABASE for_hire;
+CREATE DATABASE fhv2;
 
 -- try to insert this to SQL PRO and INPUT THIS SINGLE DATA
 INSERT INTO`Worker`(`url_link`, `name`, `zip_code`, `email`, `phone`, `service`) VALUES

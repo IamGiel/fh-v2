@@ -1,187 +1,190 @@
-
-body{
-    background-color: #f5f5f5;
+body {
+  background-color: #f5f5f5;
 }
-
 
 /* Container holding the image and the text */
 /* form container */
 .container {
-    position: relative;
-    text-align: center;
-    color: gray;
-    width: 100%;
+  position: relative;
+  text-align: center;
+  color: gray;
+  width: 100%;
 }
 
 /* find help button on home page */
 #find-help {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    height: 250px;
-    width: 300px;
-    font-size: 50px;
-    text-align: center;
-    border-radius: 29%;
-    text-align: center;
-    border-radius: 10%;
-    font-weight: 400;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  height: 250px;
+  width: 300px;
+  font-size: 50px;
+  text-align: center;
+  border-radius: 29%;
+  text-align: center;
+  border-radius: 10%;
+  font-weight: 400;
 }
 
 /* signup button on home page */
 #signup {
-    position: absolute;
-    top: 50%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    height: 250px;
-    width: 300px;
-    font-size: 50px;
-    text-align: center;
-    border-radius: 10%;
-    font-weight: 400;
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  height: 250px;
+  width: 300px;
+  font-size: 50px;
+  text-align: center;
+  border-radius: 10%;
+  font-weight: 400;
 }
-#signup:hover, #find-help:hover {
-    border-radius: 29%;
-    border-width: 2px;
-    border-color: rgb(207, 17, 17);
-    color:white;
-    opacity:0.8;
-    font-weight: 600;
+#signup:hover,
+#find-help:hover {
+  border-radius: 29%;
+  border-width: 2px;
+  border-color: rgb(207, 17, 17);
+  color: white;
+  opacity: 0.8;
+  font-weight: 600;
 }
 
 /* homepage image */
-#collage{
-    opacity: 0.789;
+#collage {
+  opacity: 0.789;
 }
 
 /* Makes services cards smaller */
-.services1{
-    height: 250px;
+.services1 {
+  height: 250px;
 }
 
 /* moving the services to the center */
-#services, #services2, #services3{
-    margin-left:250px;
+#services,
+#services2,
+#services3 {
+  margin-left: 250px;
 }
 
 /* Services picture border */
-.card-content{
-    border: 10px, black;
+.card-content {
+  border: 10px, black;
 }
 
-
 /* centering form */
-#formContainer{
-    margin-left: 400px;
+#formContainer {
+  margin-left: 400px;
 }
 
 /* submit button on form */
 #formSubmit {
-    display: flex;
-    justify-content: center;
-    height: 55px;
-    position: relative;
-    left: 61%;
+  display: flex;
+  justify-content: center;
+  height: 55px;
+  position: relative;
+  left: 61%;
 }
 
-#selectMenu{
-    font-size: 14px;
+#selectMenu {
+  font-size: 14px;
 }
-
-
 
 span {
-    background-repeat: no-repeat;
-    padding: 0;
-    margin: 25px;
-}   
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 25px;
+}
 
 /* login */
 .form-control {
-    text-align: center;
-    width: 50%;
+  text-align: center;
+  width: 50%;
 }
 input.form-control {
-    width: 50%;
+  width: 50%;
 }
 /* customize this alert */
 span.badge.new:after {
-    content: " NEW helper!";
+  content: " NEW helper!";
 }
 span.badge.new {
-    font-weight: 300;
-    font-size: 0.8rem;
-    color: #fff;
-    background-color: hsl(0, 80%, 43%);
-    border-radius: 2px;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: hsl(0, 80%, 43%);
+  border-radius: 2px;
 }
 
 /*Footer*/
 .developed-by {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    /* margin-left: 400px; */
-    text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /* margin-left: 400px; */
+  text-align: center;
 }
 
 /* for hire title */
 
 .page-title {
-    font-size: 50px;
-    margin-left: 375px;
+  font-size: 50px;
+  margin-left: 375px;
 }
 
 /* slogan */
 .slogan {
-    font-size: 20px;
-    position: relative;
-    bottom: 3px;
-    left: -21px;
+  font-size: 20px;
+  position: relative;
+  bottom: 3px;
+  left: -21px;
 }
 
 /* nav bar */
 .top-nav {
-    height: 90px;
+  height: 90px;
 }
 nav ul a:hover {
-    background-color: rgba(0,0,0,0.1);
-    border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
 
-
-
-#locateUserInput  {
-    font-size: 27px;
-    color: #6c67d5;
+#locateUserInput {
+  font-size: 27px;
+  color: #6c67d5;
 }
-
 
 nav ul a {
-    transition: background-color .3s;
-    font-size: 1rem;
-    color: #fff;
-    display: block;
-    padding: 0 15px;
-    cursor: pointer;
-    position: relative;
-    left: 200git s%;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+  color: #fff;
+  display: block;
+  padding: 0 15px;
+  cursor: pointer;
+  position: relative;
+  left: 200git s%;
 }
 
 .blue-grey.lighten-3 {
-    background-color: #b0bec5 !important;
+  background-color: #b0bec5 !important;
 }
-
 
 .card-panel {
-    transition: box-shadow .25s;
-    padding: 24px;
-    margin: 3.5rem 0 1rem 0;
-    border-radius: 2px;
-    background-color: #fff;
-    position: relative;
-    left: -1%;
+  transition: box-shadow 0.25s;
+  padding: 24px;
+  margin: 3.5rem 0 1rem 0;
+  border-radius: 2px;
+  background-color: #fff;
+  position: relative;
+  left: -1%;
 }
 
-
+.input-field .prefix {
+  position: relative;
+  width: 3rem;
+  font-size: 2rem;
+  transition: color 0.2s;
+  left: -40%;
+}
+.requireSpan {
+  display: none;
+}

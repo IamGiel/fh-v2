@@ -14,28 +14,32 @@
     <div class="col-sm-6 col-sm-offset-3">
         <h1>
             <span class="fa fa-sign-in"></span> Login</h1>
-        
+
         <!-- LOGIN FORM -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-1">
-                        <form>
-                            <div class="form-group">
-                                {{!-- <input type="email" class="form-control" id="email-input" placeholder="Email"> --}}
-                                <input placeholder="email" type="text" class="form-control"  id="email-input">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="password-input" placeholder="Password">
-                            </div>
-                            <button id="loggingIn" type="submit" class="btn btn-default">Login</button>
-                        </form>
-                            <br />
-                            <p class="orSignUpHere">Or sign up
-                            <a href="/signupForm">here</a>
-                        </p>
-                    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-1">
+                    {{!-- <form action="/post" method="POST" role="form"> --}}
+                    <form method="POST" action="/login">
+                        <div class="form-group">
+                            {{!--
+                            <input type="email" class="form-control" id="email-input" placeholder="Email"> --}}
+                            <span class="label label-danger requireSpan">*required</span>
+                            <input placeholder="email" type="text" class="form-control" id="email-input">
+                        </div>
+                        <div class="form-group">
+                            <span class="label label-danger requireSpan">*required</span>
+                            <input type="password" class="form-control" id="password-input" placeholder="Password">
+                        </div>
+                        <button id="loggingIn" type="submit" class="btn btn-default">Login</button>
+                    </form>
+                    <br />
+                    <p class="orSignUpHere">Or sign up
+                        <a href="/signupForm">here</a>
+                    </p>
                 </div>
             </div>
+        </div>
 
         <hr>
 
