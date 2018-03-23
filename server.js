@@ -18,8 +18,8 @@ var env = require("dotenv").load();
 
 //Environment variables
 require("dotenv").config();
-clientID: "1034421344860-ksgl4clmlrtsm20bej5kvev2v1pnuk7e.apps.googleusercontent.com";
-clientSecret: "YUGny2EgMQtDg6Jd7u8XLljA";
+clientID: process.env.CLIENT_ID;
+clientSecret: process.env.CLIENT_SECRET;
 
 // Sets up the Express App
 // =============================================================
